@@ -1,6 +1,5 @@
 - 👋 Hi, I’m @Omar102598
-- 👀 I’m interested in Software Engineering roles upon graduation in August 2022.
-- 🌱 I’m currently studying computer engineering at University of Texas at Dallas
+- 🌱 I’m a computer engineering grad from University of Texas at Dallas
 - 📫 How to reach me: omarsalazar1025@gmail.com
 
 <!---
