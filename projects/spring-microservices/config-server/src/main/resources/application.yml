@@ -1,0 +1,74 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_REPO_URI:https://github.com/placeholder/config-repo}
+          default-label: main
+          clone-on-start: true
+          search-paths: '{application}'
+          timeout: 10
+          try-master-fallback: false
+        native:
+          search-locations: classpath:/config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://eureka:eureka-secret@localhost:8761/eureka/}
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, env, refresh, busrefresh
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Config Server
+    description: Spring Cloud Config Server for centralized configuration
+    version: 1.0.0
+
+logging:
+  level:
+    org.springframework.cloud.config: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+---
+spring:
+  config:
+    activate:
+      on-profile: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_REPO_URI:https://github.com/placeholder/config-repo}
+          default-label: main
+          clone-on-start: true
+          search-paths: '{application}'
