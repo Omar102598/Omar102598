@@ -102,6 +102,7 @@ resource "azurerm_mssql_database" "main" {
     retention_days       = var.backup_retention_days
   }
 
+  # NOTE: prevent_destroy must be a literal; set to false when tearing down non-prod
   lifecycle {
     prevent_destroy = true
   }
