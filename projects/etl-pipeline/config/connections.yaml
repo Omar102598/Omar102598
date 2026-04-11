@@ -1,0 +1,64 @@
+# =============================================================================
+# Database & Service Connections
+# =============================================================================
+# Sensitive values should be provided via environment variables in production.
+
+connections:
+  source_postgres:
+    type: postgres
+    host: ${DB_HOST:-localhost}
+    port: 5432
+    database: source_db
+    username: ${DB_USER:-etl_user}
+    password: PLACEHOLDER_SOURCE_POSTGRES_PASSWORD
+    schema: public
+    options:
+      sslmode: prefer
+      connect_timeout: 30
+      application_name: etl-pipeline
+
+  source_mysql:
+    type: mysql
+    host: ${MYSQL_HOST:-localhost}
+    port: 3306
+    database: source_mysql_db
+    username: ${MYSQL_USER:-etl_reader}
+    password: PLACEHOLDER_SOURCE_MYSQL_PASSWORD
+    charset: utf8mb4
+    options:
+      connect_timeout: 30
+      read_timeout: 300
+
+  target_warehouse:
+    type: postgres
+    host: ${WAREHOUSE_HOST:-localhost}
+    port: 5432
+    database: etl_warehouse
+    username: ${WAREHOUSE_USER:-warehouse_admin}
+    password: PLACEHOLDER_TARGET_WAREHOUSE_PASSWORD
+    schema: public
+    options:
+      sslmode: require
+      connect_timeout: 30
+      application_name: etl-pipeline-writer
+
+  redis:
+    type: redis
+    host: ${REDIS_HOST:-redis}
+    port: 6379
+    database: 0
+    password: PLACEHOLDER_REDIS_PASSWORD
+    options:
+      socket_timeout: 10
+      decode_responses: true
+
+  s3:
+    type: s3
+    bucket: ${S3_BUCKET:-my-etl-data-lake}
+    region: ${AWS_DEFAULT_REGION:-us-east-1}
+    access_key_id: PLACEHOLDER_AWS_ACCESS_KEY_ID
+    secret_access_key: PLACEHOLDER_AWS_SECRET_ACCESS_KEY
+    options:
+      endpoint_url: null
+      use_ssl: true
+      verify: true
