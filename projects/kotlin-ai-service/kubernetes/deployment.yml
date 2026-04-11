@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin-ai-service
+  namespace: default
+  labels:
+    app: kotlin-ai-service
+    version: "1.0.0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kotlin-ai-service
+  template:
+    metadata:
+      labels:
+        app: kotlin-ai-service
+        version: "1.0.0"
+    spec:
+      containers:
+        - name: kotlin-ai-service
+          image: kotlin-ai-service:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8090
+              name: http
+          env:
+            - name: PORT
+              value: "8090"
+            - name: DATABASE_URL
+              value: "jdbc:postgresql://postgres-service:5432/ai_service"
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ai-service-secrets
+                  key: db-user
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ai-service-secrets
+                  key: db-password
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ai-service-secrets
+                  key: openai-api-key
+                  optional: true
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8090
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8090
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ai-service-secrets
+  namespace: default
+type: Opaque
+stringData:
+  db-user: postgres
+  db-password: PLACEHOLDER_POSTGRES_PASSWORD
+  openai-api-key: ""
