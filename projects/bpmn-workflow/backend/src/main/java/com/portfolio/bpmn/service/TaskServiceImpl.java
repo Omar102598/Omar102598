@@ -33,7 +33,7 @@ public class TaskServiceImpl implements TaskService {
                 .taskName(request.taskName())
                 .assignee(request.assignee())
                 .candidateGroup(request.candidateGroup())
-                .priority(request.priority() > 0 ? request.priority() : 50)
+                .priority(request.priority() >= 0 ? request.priority() : 50)
                 .dueDate(request.dueDate())
                 .status(WorkflowTask.Status.PENDING)
                 .build();
