@@ -1,0 +1,34 @@
+################################################################################
+# AKS Module – Outputs
+################################################################################
+
+output "cluster_name" {
+  description = "Name of the AKS cluster."
+  value       = azurerm_kubernetes_cluster.main.name
+}
+
+output "cluster_id" {
+  description = "ID of the AKS cluster."
+  value       = azurerm_kubernetes_cluster.main.id
+}
+
+output "kube_config_raw" {
+  description = "Raw kubeconfig for the AKS cluster."
+  value       = azurerm_kubernetes_cluster.main.kube_config_raw
+  sensitive   = true
+}
+
+output "oidc_issuer_url" {
+  description = "OIDC issuer URL for workload identity federation."
+  value       = azurerm_kubernetes_cluster.main.oidc_issuer_url
+}
+
+output "kubelet_identity_object_id" {
+  description = "Object ID of the kubelet managed identity."
+  value       = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+}
+
+output "log_analytics_workspace_id" {
+  description = "ID of the Log Analytics workspace."
+  value       = azurerm_log_analytics_workspace.aks.id
+}

@@ -1,0 +1,32 @@
+################################################################################
+# Example Variable Values – Copy to terraform.tfvars and customise
+################################################################################
+
+project_name = "myproject"
+environment  = "dev"
+azure_region = "eastus"
+owner        = "platform-team"
+cost_center  = "CC-12345"
+
+# Networking
+vnet_address_space = ["10.0.0.0/16"]
+
+# AKS
+aks_kubernetes_version  = "1.28"
+aks_system_node_vm_size = "Standard_D4s_v5"
+aks_user_node_vm_size   = "Standard_D8s_v5"
+aks_min_node_count      = 2
+aks_max_node_count      = 10
+
+# SQL Database
+sql_sku_name              = "GP_Gen5_4"
+sql_max_size_gb           = 256
+sql_backup_retention_days = 30
+
+# AI / OpenAI
+openai_model_name    = "gpt-4"
+openai_model_version = "0613"
+
+# Monitoring
+alert_email_endpoints = ["platform-alerts@example.com"]
+log_retention_days    = 90

@@ -1,0 +1,168 @@
+# =============================================================================
+# ETL Pipeline Configuration
+# =============================================================================
+
+pipelines:
+  customer_analytics:
+    name: "Customer Analytics Pipeline"
+    description: "Extracts customer data, applies transformations, and loads into the analytics warehouse."
+    schedule: "0 2 * * *"  # Daily at 2:00 AM UTC
+    enabled: true
+
+    sources:
+      - type: postgres
+        connection: source_postgres
+        query: >
+          SELECT c.id, c.name, c.email, c.created_at, c.segment,
+                 o.total_orders, o.total_revenue, o.last_order_date
+          FROM customers c
+          LEFT JOIN (
+            SELECT customer_id,
+                   COUNT(*) AS total_orders,
+                   SUM(amount) AS total_revenue,
+                   MAX(order_date) AS last_order_date
+            FROM orders
+            GROUP BY customer_id
+          ) o ON c.id = o.customer_id
+        incremental_key: c.created_at
+
+    transforms:
+      - type: deduplicate
+        config:
+          subset: ["id"]
+          keep: "last"
+      - type: cast_types
+        config:
+          total_revenue: float
+          total_orders: int
+      - type: fill_missing
+        config:
+          total_orders: 0
+          total_revenue: 0.0
+      - type: add_computed_columns
+        config:
+          columns:
+            avg_order_value: "total_revenue / total_orders"
+            customer_tenure_days: "(current_date - created_at).days"
+            is_active: "last_order_date >= current_date - timedelta(days=90)"
+
+    targets:
+      - type: postgres
+        connection: target_warehouse
+        table: dim_customers
+        write_mode: upsert
+        upsert_key: id
+        pre_sql: "TRUNCATE TABLE stg_customers;"
+        staging_table: stg_customers
+
+    quality_checks:
+      - type: not_null
+        columns: ["id", "name", "email"]
+      - type: unique
+        columns: ["id"]
+      - type: row_count
+        min: 1
+      - type: value_range
+        column: total_revenue
+        min: 0.0
+
+  transaction_processing:
+    name: "Transaction Processing Pipeline"
+    description: "Processes raw transaction data into fact tables for reporting."
+    schedule: "*/30 * * * *"  # Every 30 minutes
+    enabled: true
+
+    sources:
+      - type: postgres
+        connection: source_postgres
+        query: >
+          SELECT t.id, t.customer_id, t.amount, t.currency,
+                 t.status, t.payment_method, t.created_at, t.updated_at
+          FROM transactions t
+          WHERE t.updated_at >= :last_run_timestamp
+        incremental_key: t.updated_at
+      - type: csv
+        path: "s3://${S3_BUCKET}/incoming/transactions/"
+        format: csv
+        delimiter: ","
+        header: true
+
+    transforms:
+      - type: deduplicate
+        config:
+          subset: ["id"]
+          keep: "last"
+      - type: filter_rows
+        config:
+          condition: "status != 'cancelled'"
+      - type: currency_conversion
+        config:
+          source_column: amount
+          currency_column: currency
+          target_currency: USD
+      - type: add_computed_columns
+        config:
+          columns:
+            transaction_date: "created_at.date()"
+            fiscal_quarter: "((created_at.month - 1) // 3) + 1"
+            is_high_value: "amount >= 1000"
+
+    targets:
+      - type: postgres
+        connection: target_warehouse
+        table: fact_transactions
+        write_mode: upsert
+        upsert_key: id
+        staging_table: stg_transactions
+      - type: parquet
+        path: "s3://${S3_BUCKET}/processed/transactions/"
+        partition_by: ["transaction_date"]
+
+    quality_checks:
+      - type: not_null
+        columns: ["id", "customer_id", "amount", "status"]
+      - type: unique
+        columns: ["id"]
+      - type: row_count
+        min: 0
+      - type: value_range
+        column: amount
+        min: 0.0
+      - type: referential_integrity
+        column: customer_id
+        reference_table: dim_customers
+        reference_column: id
+
+# =============================================================================
+# Global Settings
+# =============================================================================
+settings:
+  batch_size: 1000
+  max_retries: 3
+  retry_delay_seconds: 60
+  query_timeout_seconds: 300
+  max_concurrent_pipelines: 4
+  checkpoint_enabled: true
+  checkpoint_interval: 5000
+
+  logging:
+    level: INFO
+    format: json
+    output: stdout
+
+  notifications:
+    on_success: false
+    on_failure: true
+    on_retry: true
+    channels:
+      - type: email
+        recipients:
+          - data-team@example.com
+      - type: slack
+        webhook_url: "${SLACK_WEBHOOK_URL}"
+        channel: "#etl-alerts"
+
+  monitoring:
+    prometheus_enabled: true
+    prometheus_port: 9090
+    metrics_prefix: "etl_pipeline"
