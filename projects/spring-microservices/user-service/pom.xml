@@ -21,6 +21,7 @@
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <springdoc.version>2.3.0</springdoc.version>
+        <postgresql.version>42.7.7</postgresql.version>
     </properties>
 
     <dependencyManagement>

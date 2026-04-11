@@ -21,6 +21,7 @@
         <java.version>17</java.version>
         <springdoc.version>2.3.0</springdoc.version>
         <camunda.version>7.20.0</camunda.version>
+        <postgresql.version>42.7.7</postgresql.version>
     </properties>
 
     <dependencyManagement>
