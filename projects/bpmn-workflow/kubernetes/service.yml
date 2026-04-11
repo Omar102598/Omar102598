@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bpmn-workflow
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bpmn-workflow-backend
+  namespace: bpmn-workflow
+  labels:
+    app: bpmn-workflow-backend
+spec:
+  selector:
+    app: bpmn-workflow-backend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8085
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: bpmn-workflow
+  labels:
+    app: postgres
+spec:
+  selector:
+    app: postgres
+  ports:
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bpmn-workflow-ingress
+  namespace: bpmn-workflow
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: bpmn-workflow.local
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: bpmn-workflow-backend
+                port:
+                  number: 80
+          - path: /swagger-ui
+            pathType: Prefix
+            backend:
+              service:
+                name: bpmn-workflow-backend
+                port:
+                  number: 80

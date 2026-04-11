@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pm-backend
+  labels:
+    app: pm-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: pm-backend
+  ports:
+    - name: http
+      port: 8090
+      targetPort: 8090
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pm-postgres
+  labels:
+    app: pm-postgres
+spec:
+  type: ClusterIP
+  selector:
+    app: pm-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+      protocol: TCP

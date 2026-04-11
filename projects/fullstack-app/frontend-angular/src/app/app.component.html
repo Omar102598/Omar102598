@@ -1,0 +1,26 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>Project Management Platform</h1>
+    <span *ngIf="selectedProject" class="selected-project">
+      &nbsp;/ {{ selectedProject.name }}
+    </span>
+  </header>
+
+  <main class="app-main">
+    <aside class="sidebar">
+      <app-project-list (projectSelected)="onProjectSelected($event)"></app-project-list>
+    </aside>
+
+    <section class="content" *ngIf="selectedProject">
+      <app-kanban-board [projectId]="selectedProject.id"></app-kanban-board>
+      <app-sprint-manager [projectId]="selectedProject.id"></app-sprint-manager>
+    </section>
+
+    <section class="welcome" *ngIf="!selectedProject">
+      <div class="welcome-message">
+        <h2>Welcome to Project Management Platform</h2>
+        <p>Select a project from the sidebar to get started, or create a new one.</p>
+      </div>
+    </section>
+  </main>
+</div>

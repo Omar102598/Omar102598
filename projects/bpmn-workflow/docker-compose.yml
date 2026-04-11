@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: bpmn-postgres
+    environment:
+      POSTGRES_DB: bpmndb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: PLACEHOLDER_POSTGRES_PASSWORD
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bpmn-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: bpmndb
+      DB_USERNAME: postgres
+      DB_PASSWORD: PLACEHOLDER_POSTGRES_PASSWORD
+      CAMUNDA_ADMIN_USER: admin
+      CAMUNDA_ADMIN_PASSWORD: PLACEHOLDER_CAMUNDA_PASSWORD
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ports:
+      - "8085:8085"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8085/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    image: node:20-alpine
+    container_name: bpmn-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm start -- --host 0.0.0.0 --port 4200"
+    depends_on:
+      - backend
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
+
+volumes:
+  postgres_data:
