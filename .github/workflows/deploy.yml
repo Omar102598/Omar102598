@@ -32,6 +32,8 @@ jobs:
 
       - name: Build
         working-directory: website
+        env:
+          VITE_GITHUB_TOKEN: ${{ secrets.COPILOT_API_KEY }}
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
