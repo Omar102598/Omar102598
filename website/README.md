@@ -1,6 +1,39 @@
-# React + TypeScript + Vite
+# Omar's Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite portfolio with an AI chatbot powered by GitHub Models.
+
+## AI Chatbot Setup
+
+The chatbot uses the [GitHub Models](https://github.com/marketplace/models) API, which is included in your GitHub Copilot subscription (no separate OpenAI key needed).
+
+> **⚠️ Security note**: `VITE_*` variables are embedded in the client-side bundle and are visible to anyone who inspects the page source. To limit exposure, use a **Fine-grained PAT with only the `Models: Read-only` permission** — it cannot access repositories or any other resource. For a production deployment that requires tighter security, proxy the request through a serverless function so the token stays server-side.
+
+### Local development
+
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Generate a GitHub **Fine-grained** Personal Access Token at <https://github.com/settings/tokens?type=beta>:
+   - Under **Permissions → Account permissions**, set **Models** to **Read-only**
+   - All other permissions can remain at *No access*
+3. Paste the token into `.env`:
+   ```
+   VITE_GITHUB_TOKEN=ghp_your_token_here
+   ```
+4. Start the dev server:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+> **Important**: Never commit the `.env` file. It is already excluded via `.gitignore`.
+
+### Deployment
+
+Set the `VITE_GITHUB_TOKEN` environment variable in your hosting provider's settings (e.g. GitHub Pages → Settings → Variables and Secrets, or Vercel / Netlify environment variables) using the same minimal-scope token described above.
+
+---
 
 Currently, two official plugins are available:
 
