@@ -26,6 +26,7 @@ import java.util.UUID;
 public class AISprintPlannerServiceImpl implements AISprintPlannerService {
 
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
+    private static final int FALLBACK_MAX_TASKS = 5;
 
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
@@ -44,7 +45,7 @@ public class AISprintPlannerServiceImpl implements AISprintPlannerService {
             log.warn("OpenAI API key not configured, using fallback sprint plan");
             return new AISprintPlanResponse(
                     "Sprint 1",
-                    request.taskIds() != null ? request.taskIds().subList(0, Math.min(5, request.taskIds().size())) : List.of(),
+                    request.taskIds() != null ? request.taskIds().subList(0, Math.min(FALLBACK_MAX_TASKS, request.taskIds().size())) : List.of(),
                     request.availableStoryPoints(),
                     "Fallback plan: AI service not configured. Selected first available tasks up to story point capacity."
             );

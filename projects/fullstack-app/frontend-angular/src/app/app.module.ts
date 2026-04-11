@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
@@ -20,7 +20,6 @@ import { SprintManagerComponent } from './components/sprint-manager/sprint-manag
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     DragDropModule
   ],
   providers: [],
