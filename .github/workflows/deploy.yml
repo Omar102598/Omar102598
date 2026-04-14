@@ -1,4 +1,4 @@
-name: Deploy Website to GitHub Pages
+name: Deploy Websites to GitHub Pages
 
 on:
   push:
@@ -24,21 +24,43 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: |
+            website/package-lock.json
+            fitness-site/package-lock.json
 
-      - name: Install dependencies
+      # Build portfolio website
+      - name: Install portfolio dependencies
         working-directory: website
         run: npm install
 
-      - name: Build
+      - name: Build portfolio
         working-directory: website
         env:
           VITE_GITHUB_TOKEN: ${{ secrets.COPILOT_API_KEY }}
         run: npm run build
 
+      # Build fitness site
+      - name: Install fitness site dependencies
+        working-directory: fitness-site
+        run: npm install
+
+      - name: Build fitness site
+        working-directory: fitness-site
+        env:
+          VITE_GITHUB_TOKEN: ${{ secrets.COPILOT_API_KEY }}
+        run: npm run build
+
+      # Merge both builds into a single artifact
+      - name: Merge build outputs
+        run: |
+          mkdir -p _site
+          cp -r website/dist/* _site/
+          mkdir -p _site/fitness
+          cp -r fitness-site/dist/* _site/fitness/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: website/dist
+          path: _site
 
   deploy:
     needs: build
