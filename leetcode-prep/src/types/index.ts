@@ -38,7 +38,7 @@ export interface ProblemExample {
 }
 
 export interface UserProgress {
-  oddsCompleted: number;
+  totalCompleted: number;
   problemsSolved: Record<string, SolvedProblem>;
   topicScores: Record<TopicCategory, TopicScore>;
   currentLevel: Difficulty;

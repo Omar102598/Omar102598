@@ -5,7 +5,7 @@ const STORAGE_KEY = 'leetcode-prep-progress';
 
 function getDefaultProgress(): UserProgress {
   return {
-    oddsCompleted: 0,
+    totalCompleted: 0,
     problemsSolved: {},
     topicScores: {} as Record<TopicCategory, TopicScore>,
     currentLevel: 'easy',
