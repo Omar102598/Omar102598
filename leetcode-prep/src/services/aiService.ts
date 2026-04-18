@@ -1,8 +1,17 @@
-import type { ChatMessage, Problem, Difficulty, TopicCategory, UserProgress } from '../types';
+import type { ChatMessage, Problem, Difficulty, TopicCategory, UserProgress, TestCase, RunResult, SupportedLanguage } from '../types';
 
 const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN as string | undefined;
 const GITHUB_MODELS_ENDPOINT = 'https://models.inference.ai.azure.com/chat/completions';
 const MODEL = 'gpt-4o';
+
+const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
+  python: 'Python',
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  java: 'Java',
+  cpp: 'C++',
+  go: 'Go',
+};
 
 function buildSystemPrompt(): string {
   return `You are CodePrep AI, an expert coding interview coach specializing in preparing candidates for Software Engineer II positions at fintech companies like Affirm. You create LeetCode-style coding problems, evaluate solutions, and provide detailed explanations.
@@ -121,12 +130,14 @@ export async function generateBaselineProblems(): Promise<Problem[]> {
 export async function evaluateSolution(
   problem: Problem,
   userCode: string,
+  language: SupportedLanguage = 'python',
 ): Promise<{ feedback: string; score: number; passed: boolean }> {
+  const langName = LANGUAGE_NAMES[language];
   const messages: ApiMessage[] = [
     { role: 'system', content: buildSystemPrompt() },
     {
       role: 'user',
-      content: `Evaluate this solution for the following problem:
+      content: `Evaluate this ${langName} solution for the following problem:
 
 PROBLEM: ${problem.title}
 ${problem.description}
@@ -134,8 +145,8 @@ ${problem.description}
 Examples:
 ${problem.examples.map((e) => `Input: ${e.input} → Output: ${e.output}`).join('\n')}
 
-USER'S CODE:
-\`\`\`python
+USER'S CODE (${langName}):
+\`\`\`${language}
 ${userCode}
 \`\`\`
 
@@ -167,9 +178,11 @@ export async function getHint(
   problem: Problem,
   hintLevel: number,
   userCode: string,
+  language: SupportedLanguage = 'python',
 ): Promise<string> {
   const levels = ['a gentle nudge in the right direction', 'a suggested approach or pattern to use', 'detailed step-by-step guidance'];
   const levelDesc = levels[Math.min(hintLevel, 2)];
+  const langName = LANGUAGE_NAMES[language];
 
   const messages: ApiMessage[] = [
     { role: 'system', content: buildSystemPrompt() },
@@ -180,8 +193,8 @@ export async function getHint(
 PROBLEM: ${problem.title}
 ${problem.description}
 
-User's current code:
-\`\`\`python
+User's current code (${langName}):
+\`\`\`${language}
 ${userCode}
 \`\`\`
 
@@ -276,4 +289,110 @@ export async function getWeakestTopic(progress: UserProgress): Promise<TopicCate
     });
 
   return weakest.length > 0 ? weakest[0][0] : 'arrays-strings';
+}
+
+export async function runTestCases(
+  problem: Problem,
+  userCode: string,
+  testCases: TestCase[],
+  language: SupportedLanguage = 'python',
+): Promise<RunResult> {
+  const langName = LANGUAGE_NAMES[language];
+  const testCaseStr = testCases.map((tc, i) =>
+    `Test Case ${i + 1}:\n  Input: ${tc.input}\n  Expected Output: ${tc.expectedOutput}`
+  ).join('\n\n');
+
+  const messages: ApiMessage[] = [
+    { role: 'system', content: buildSystemPrompt() },
+    {
+      role: 'user',
+      content: `You are a code execution engine. Mentally execute / trace through this ${langName} code against each test case and report results.
+
+PROBLEM: ${problem.title}
+${problem.description}
+
+USER'S CODE (${langName}):
+\`\`\`${language}
+${userCode}
+\`\`\`
+
+TEST CASES:
+${testCaseStr}
+
+For each test case, mentally execute the code and determine the actual output. Be precise and accurate.
+
+Return ONLY a valid JSON object (no markdown, no code fences):
+{
+  "testResults": [
+    {
+      "testCaseId": "${testCases[0]?.id || 'case-1'}",
+      "input": "the input",
+      "expectedOutput": "expected",
+      "actualOutput": "what the code actually produces",
+      "passed": true,
+      "error": null,
+      "executionTimeMs": 5
+    }
+  ],
+  "allPassed": true,
+  "timeComplexity": "O(n)",
+  "spaceComplexity": "O(1)",
+  "totalExecutionTimeMs": 12
+}
+
+IMPORTANT:
+- testCaseId values must match exactly: ${testCases.map(tc => `"${tc.id}"`).join(', ')}
+- Include one result per test case in the same order
+- executionTimeMs should be a realistic estimate for the algorithm
+- If code has a syntax error or runtime error, set passed=false and include the error message
+- Be precise with actualOutput — show exact return values`,
+    },
+  ];
+
+  const response = await callApi(messages, 4096);
+  try {
+    const cleaned = response.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    return JSON.parse(cleaned) as RunResult;
+  } catch {
+    return {
+      testResults: testCases.map(tc => ({
+        testCaseId: tc.id,
+        input: tc.input,
+        expectedOutput: tc.expectedOutput,
+        actualOutput: 'Error: Unable to evaluate',
+        passed: false,
+        error: 'Failed to parse AI evaluation response',
+      })),
+      allPassed: false,
+    };
+  }
+}
+
+export function getStarterCodeForLanguage(problem: Problem, language: SupportedLanguage): string {
+  // Check if problem has language-specific starter code
+  if (problem.starterCodeByLang?.[language]) {
+    return problem.starterCodeByLang[language];
+  }
+
+  // Generate a generic starter based on the Python starter code
+  const funcMatch = problem.starterCode.match(/def\s+(\w+)\s*\(([^)]*)\)/);
+  const funcName = funcMatch?.[1] || 'solution';
+  const params = funcMatch?.[2] || '';
+
+  switch (language) {
+    case 'python':
+      return problem.starterCode;
+    case 'javascript':
+      return `/**\n * @param {${params.split(',').map(() => 'any').join(', ')}} ${params}\n * @return {any}\n */\nvar ${funcName} = function(${params}) {\n    // Your code here\n    \n};`;
+    case 'typescript':
+      return `function ${funcName}(${params.split(',').map(p => `${p.trim()}: any`).join(', ')}): any {\n    // Your code here\n    \n}`;
+    case 'java':
+      return `class Solution {\n    public Object ${funcName}(${params.split(',').map(p => `Object ${p.trim()}`).join(', ')}) {\n        // Your code here\n        return null;\n    }\n}`;
+    case 'cpp':
+      return `class Solution {\npublic:\n    auto ${funcName}(${params.split(',').map(p => `auto ${p.trim()}`).join(', ')}) {\n        // Your code here\n        \n    }\n};`;
+    case 'go':
+      return `func ${funcName}(${params.split(',').map(p => `${p.trim()} interface{}`).join(', ')}) interface{} {\n    // Your code here\n    return nil\n}`;
+    default:
+      return problem.starterCode;
+  }
 }

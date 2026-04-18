@@ -1,5 +1,31 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
+export type SupportedLanguage = 'python' | 'javascript' | 'typescript' | 'java' | 'cpp' | 'go';
+
+export interface TestCase {
+  id: string;
+  input: string;
+  expectedOutput: string;
+}
+
+export interface TestResult {
+  testCaseId: string;
+  input: string;
+  expectedOutput: string;
+  actualOutput: string;
+  passed: boolean;
+  error?: string;
+  executionTimeMs?: number;
+}
+
+export interface RunResult {
+  testResults: TestResult[];
+  allPassed: boolean;
+  timeComplexity?: string;
+  spaceComplexity?: string;
+  totalExecutionTimeMs?: number;
+}
+
 export type TopicCategory =
   | 'arrays-strings'
   | 'hash-maps'
@@ -24,8 +50,11 @@ export interface Problem {
   examples: ProblemExample[];
   constraints: string[];
   starterCode: string;
+  starterCodeByLang?: Partial<Record<SupportedLanguage, string>>;
+  testCases?: TestCase[];
   hints: string[];
   solution?: string;
+  solutionByLang?: Partial<Record<SupportedLanguage, string>>;
   explanation?: string;
   timeComplexity?: string;
   spaceComplexity?: string;

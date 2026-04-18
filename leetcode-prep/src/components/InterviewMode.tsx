@@ -5,10 +5,11 @@ import {
   StopCircle, AlertTriangle, MessageSquare,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import type { Problem, UserProgress, ChatMessage, TopicCategory, Difficulty } from '../types';
+import type { Problem, UserProgress, ChatMessage, TopicCategory, Difficulty, SupportedLanguage } from '../types';
 import { generateProblem, conductInterview } from '../services/aiService';
 import { useTimer } from '../hooks/useTimer';
 import { topics } from '../data/topics';
+import CodeEditor from './CodeEditor';
 
 interface InterviewModeProps {
   progress: UserProgress;
@@ -36,6 +37,7 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
   const [problem, setProblem] = useState<Problem | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [userCode, setUserCode] = useState('');
+  const [interviewLang] = useState<SupportedLanguage>('python');
   const [chatInput, setChatInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false);
@@ -356,12 +358,13 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
               Submit for Review
             </button>
           </div>
-          <textarea
-            className="code-editor"
-            value={userCode}
-            onChange={(e) => setUserCode(e.target.value)}
-            spellCheck={false}
-          />
+          <div className="interview-code-editor-container">
+            <CodeEditor
+              value={userCode}
+              onChange={setUserCode}
+              language={interviewLang}
+            />
+          </div>
         </div>
       </div>
     </div>
