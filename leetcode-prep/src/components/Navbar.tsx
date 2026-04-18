@@ -1,4 +1,4 @@
-import { Code2, BarChart3, Swords, BookOpen } from 'lucide-react';
+import { Code2, BarChart3, Swords, BookOpen, GraduationCap } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import type { AppView } from '../types';
 
@@ -25,6 +25,13 @@ export default function Navbar({ theme, toggleTheme, currentView, onNavigate }: 
           >
             <BarChart3 size={18} />
             <span>Dashboard</span>
+          </button>
+          <button
+            className={`nav-link ${currentView === 'articles' || currentView === 'article-view' ? 'active' : ''}`}
+            onClick={() => onNavigate('articles')}
+          >
+            <GraduationCap size={18} />
+            <span>Learn</span>
           </button>
           <button
             className={`nav-link ${currentView === 'problems' ? 'active' : ''}`}
