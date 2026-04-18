@@ -25,7 +25,7 @@ export default function ArticleList({ onNavigate, onSelectArticle }: ArticleList
         <div className="articles-header-text">
           <h1 className="gradient-text">
             <BookOpenText size={32} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 10 }} />
-            Learn Data Structures &amp; Algorithms
+            Learn Data Structures & Algorithms
           </h1>
           <p className="articles-subtitle">
             Deep-dive articles with animations, videos, and visualizations to help you master every

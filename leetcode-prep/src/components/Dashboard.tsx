@@ -176,7 +176,7 @@ export default function Dashboard({ progress, onNavigate }: DashboardProps) {
         <button className="action-card" onClick={() => onNavigate('articles')}>
           <GraduationCap size={28} />
           <span>Learn DSA</span>
-          <p>Articles, videos &amp; visualizations for every topic</p>
+          <p>Articles, videos & visualizations for every topic</p>
         </button>
         <button className="action-card" onClick={() => onNavigate('problems')}>
           <BookOpen size={28} />
