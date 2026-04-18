@@ -1,7 +1,30 @@
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Play, Globe, BookOpen } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import type { Article, ArticleResource } from '../data/articles';
+
+interface ArticleViewProps {
+  article: Article;
+  onBack: () => void;
+}
+
+function ArticleViewHeroImage({ article }: { article: Article }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  const handleError = useCallback(() => setImgFailed(true), []);
+
+  if (imgFailed) {
+    return (
+      <div className="article-view-hero-fallback">
+        <span className="article-view-hero-emoji">{article.icon}</span>
+        <span className="article-view-hero-title">{article.title}</span>
+      </div>
+    );
+  }
+
+  return <img src={article.heroImage} alt={article.title} onError={handleError} />;
+}
 
 interface ArticleViewProps {
   article: Article;
@@ -58,7 +81,7 @@ export default function ArticleView({ article, onBack }: ArticleViewProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.15 }}
       >
-        <img src={article.heroImage} alt={article.title} />
+        <ArticleViewHeroImage article={article} />
       </motion.div>
 
       {/* Overview */}
