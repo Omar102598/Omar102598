@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Trophy, Flame, Clock, Target, TrendingUp, Zap, BookOpen, Swords } from 'lucide-react';
+import { Trophy, Flame, Clock, Target, TrendingUp, Zap, BookOpen, Swords, GraduationCap } from 'lucide-react';
 import type { UserProgress, AppView } from '../types';
 import { topics } from '../data/topics';
 
@@ -173,6 +173,11 @@ export default function Dashboard({ progress, onNavigate }: DashboardProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
+        <button className="action-card" onClick={() => onNavigate('articles')}>
+          <GraduationCap size={28} />
+          <span>Learn DSA</span>
+          <p>Articles, videos & visualizations for every topic</p>
+        </button>
         <button className="action-card" onClick={() => onNavigate('problems')}>
           <BookOpen size={28} />
           <span>Practice Problems</span>

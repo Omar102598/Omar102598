@@ -8,23 +8,34 @@ import BaselineAssessment from './components/BaselineAssessment';
 import ProblemList from './components/ProblemList';
 import ProblemView from './components/ProblemView';
 import InterviewMode from './components/InterviewMode';
-import type { AppView, Problem } from './types';
+import ArticleList from './components/ArticleList';
+import ArticleView from './components/ArticleView';
+import { articleMap } from './data/articles';
+import type { AppView, Problem, TopicCategory } from './types';
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   const { progress, saveProgress } = useProgress();
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
+  const [selectedArticleId, setSelectedArticleId] = useState<TopicCategory | null>(null);
 
   const handleNavigate = (view: AppView) => {
     setCurrentView(view);
     setSelectedProblem(null);
+    if (view !== 'article-view') setSelectedArticleId(null);
     window.scrollTo(0, 0);
   };
 
   const handleSelectProblem = (problem: Problem) => {
     setSelectedProblem(problem);
     setCurrentView('problem-solve');
+  };
+
+  const handleSelectArticle = (id: TopicCategory) => {
+    setSelectedArticleId(id);
+    setCurrentView('article-view');
+    window.scrollTo(0, 0);
   };
 
   const renderView = () => {
@@ -71,6 +82,26 @@ export default function App() {
             onSave={saveProgress}
           />
         );
+      case 'articles':
+        return (
+          <ArticleList
+            onNavigate={handleNavigate}
+            onSelectArticle={handleSelectArticle}
+          />
+        );
+      case 'article-view': {
+        const article = selectedArticleId ? articleMap.get(selectedArticleId) : undefined;
+        if (!article) {
+          handleNavigate('articles');
+          return null;
+        }
+        return (
+          <ArticleView
+            article={article}
+            onBack={() => handleNavigate('articles')}
+          />
+        );
+      }
       default:
         return <Dashboard progress={progress} onNavigate={handleNavigate} />;
     }
