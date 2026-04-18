@@ -69,7 +69,7 @@ export default function TestCasePanel({
             </span>
           )}
         </div>
-        <button className="btn-ghost btn-sm">
+        <button className="btn-ghost btn-sm" aria-label={isExpanded ? 'Collapse test cases panel' : 'Expand test cases panel'}>
           {isExpanded ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
         </button>
       </div>

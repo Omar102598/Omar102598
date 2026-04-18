@@ -368,6 +368,17 @@ IMPORTANT:
   }
 }
 
+function parsePythonParams(starterCode: string): { funcName: string; paramNames: string[] } {
+  const funcMatch = starterCode.match(/def\s+(\w+)\s*\(([^)]*)\)/);
+  const funcName = funcMatch?.[1] || 'solution';
+  const rawParams = funcMatch?.[2] || '';
+  const paramNames = rawParams
+    .split(',')
+    .map(p => p.trim())
+    .filter(p => p.length > 0);
+  return { funcName, paramNames };
+}
+
 export function getStarterCodeForLanguage(problem: Problem, language: SupportedLanguage): string {
   // Check if problem has language-specific starter code
   if (problem.starterCodeByLang?.[language]) {
@@ -375,23 +386,23 @@ export function getStarterCodeForLanguage(problem: Problem, language: SupportedL
   }
 
   // Generate a generic starter based on the Python starter code
-  const funcMatch = problem.starterCode.match(/def\s+(\w+)\s*\(([^)]*)\)/);
-  const funcName = funcMatch?.[1] || 'solution';
-  const params = funcMatch?.[2] || '';
+  const { funcName, paramNames } = parsePythonParams(problem.starterCode);
 
   switch (language) {
     case 'python':
       return problem.starterCode;
-    case 'javascript':
-      return `/**\n * @param {${params.split(',').map(() => 'any').join(', ')}} ${params}\n * @return {any}\n */\nvar ${funcName} = function(${params}) {\n    // Your code here\n    \n};`;
+    case 'javascript': {
+      const jsDocParams = paramNames.map(p => ` * @param {any} ${p}`).join('\n');
+      return `/**\n${jsDocParams}\n * @return {any}\n */\nvar ${funcName} = function(${paramNames.join(', ')}) {\n    // Your code here\n    \n};`;
+    }
     case 'typescript':
-      return `function ${funcName}(${params.split(',').map(p => `${p.trim()}: any`).join(', ')}): any {\n    // Your code here\n    \n}`;
+      return `function ${funcName}(${paramNames.map(p => `${p}: any`).join(', ')}): any {\n    // Your code here\n    \n}`;
     case 'java':
-      return `class Solution {\n    public Object ${funcName}(${params.split(',').map(p => `Object ${p.trim()}`).join(', ')}) {\n        // Your code here\n        return null;\n    }\n}`;
+      return `class Solution {\n    public Object ${funcName}(${paramNames.map(p => `Object ${p}`).join(', ')}) {\n        // Your code here\n        return null;\n    }\n}`;
     case 'cpp':
-      return `class Solution {\npublic:\n    auto ${funcName}(${params.split(',').map(p => `auto ${p.trim()}`).join(', ')}) {\n        // Your code here\n        \n    }\n};`;
+      return `class Solution {\npublic:\n    auto ${funcName}(${paramNames.map(p => `auto ${p}`).join(', ')}) {\n        // Your code here\n        \n    }\n};`;
     case 'go':
-      return `func ${funcName}(${params.split(',').map(p => `${p.trim()} interface{}`).join(', ')}) interface{} {\n    // Your code here\n    return nil\n}`;
+      return `func ${funcName}(${paramNames.map(p => `${p} interface{}`).join(', ')}) interface{} {\n    // Your code here\n    return nil\n}`;
     default:
       return problem.starterCode;
   }
