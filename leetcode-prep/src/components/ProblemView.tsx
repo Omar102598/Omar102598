@@ -2,13 +2,24 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Loader2, ArrowLeft, Lightbulb, BookOpen, CheckCircle,
-  Send, Clock, RotateCcw,
+  Clock, RotateCcw,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import type { Problem, UserProgress, SolvedProblem, TopicScore } from '../types';
-import { evaluateSolution, getHint, getDetailedExplanation } from '../services/aiService';
+import type { Problem, UserProgress, SolvedProblem, TopicScore, SupportedLanguage, TestCase, RunResult } from '../types';
+import { evaluateSolution, getHint, getDetailedExplanation, runTestCases, getStarterCodeForLanguage } from '../services/aiService';
 import { useTimer } from '../hooks/useTimer';
 import { getTopicName } from '../data/topics';
+import CodeEditor from './CodeEditor';
+import TestCasePanel from './TestCasePanel';
+
+const LANGUAGES: { value: SupportedLanguage; label: string }[] = [
+  { value: 'python', label: 'Python' },
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'typescript', label: 'TypeScript' },
+  { value: 'java', label: 'Java' },
+  { value: 'cpp', label: 'C++' },
+  { value: 'go', label: 'Go' },
+];
 
 interface ProblemViewProps {
   problem: Problem;
@@ -17,8 +28,24 @@ interface ProblemViewProps {
   onSave: (progress: UserProgress) => void;
 }
 
+function buildDefaultTestCases(problem: Problem): TestCase[] {
+  if (problem.testCases && problem.testCases.length > 0) {
+    return problem.testCases;
+  }
+  // Build from examples
+  return problem.examples.map((ex, i) => ({
+    id: `example-${i + 1}`,
+    input: ex.input,
+    expectedOutput: ex.output,
+  }));
+}
+
 export default function ProblemView({ problem, progress, onBack, onSave }: ProblemViewProps) {
+  const [language, setLanguage] = useState<SupportedLanguage>('python');
   const [userCode, setUserCode] = useState(problem.starterCode);
+  const [codeByLang, setCodeByLang] = useState<Partial<Record<SupportedLanguage, string>>>({
+    python: problem.starterCode,
+  });
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [score, setScore] = useState<number | null>(null);
@@ -31,6 +58,9 @@ export default function ProblemView({ problem, progress, onBack, onSave }: Probl
   const [loadingExplanation, setLoadingExplanation] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const [activeTab, setActiveTab] = useState<'description' | 'hints' | 'solution'>('description');
+  const [testCases, setTestCases] = useState<TestCase[]>(() => buildDefaultTestCases(problem));
+  const [runResult, setRunResult] = useState<RunResult | null>(null);
+  const [isRunning, setIsRunning] = useState(false);
   const timer = useTimer(0, false);
 
   useEffect(() => {
@@ -39,11 +69,51 @@ export default function ProblemView({ problem, progress, onBack, onSave }: Probl
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleLanguageChange = (newLang: SupportedLanguage) => {
+    // Save current code
+    setCodeByLang(prev => ({ ...prev, [language]: userCode }));
+
+    // Load code for new language
+    const existingCode = codeByLang[newLang];
+    if (existingCode) {
+      setUserCode(existingCode);
+    } else {
+      const starter = getStarterCodeForLanguage(problem, newLang);
+      setUserCode(starter);
+      setCodeByLang(prev => ({ ...prev, [newLang]: starter }));
+    }
+    setLanguage(newLang);
+  };
+
+  const handleRunTests = async () => {
+    setIsRunning(true);
+    setRunResult(null);
+    try {
+      const result = await runTestCases(problem, userCode, testCases, language);
+      setRunResult(result);
+    } catch (err) {
+      console.error('Failed to run tests:', err);
+      setRunResult({
+        testResults: testCases.map(tc => ({
+          testCaseId: tc.id,
+          input: tc.input,
+          expectedOutput: tc.expectedOutput,
+          actualOutput: 'Error running tests',
+          passed: false,
+          error: err instanceof Error ? err.message : 'Unknown error',
+        })),
+        allPassed: false,
+      });
+    } finally {
+      setIsRunning(false);
+    }
+  };
+
   const handleSubmit = async () => {
     setSubmitting(true);
     setAttempts((a) => a + 1);
     try {
-      const result = await evaluateSolution(problem, userCode);
+      const result = await evaluateSolution(problem, userCode, language);
       setFeedback(result.feedback);
       setScore(result.score);
       setPassed(result.passed);
@@ -102,7 +172,7 @@ export default function ProblemView({ problem, progress, onBack, onSave }: Probl
   const handleGetHint = async () => {
     setLoadingHint(true);
     try {
-      const hint = await getHint(problem, hintsRevealed, userCode);
+      const hint = await getHint(problem, hintsRevealed, userCode, language);
       setAiHints((prev) => [...prev, hint]);
       setHintsRevealed((h) => h + 1);
       setActiveTab('hints');
@@ -133,10 +203,13 @@ export default function ProblemView({ problem, progress, onBack, onSave }: Probl
   };
 
   const handleReset = () => {
-    setUserCode(problem.starterCode);
+    const starter = getStarterCodeForLanguage(problem, language);
+    setUserCode(starter);
+    setCodeByLang(prev => ({ ...prev, [language]: starter }));
     setFeedback(null);
     setScore(null);
     setPassed(null);
+    setRunResult(null);
   };
 
   return (
@@ -308,28 +381,39 @@ export default function ProblemView({ problem, progress, onBack, onSave }: Probl
 
         <div className="problem-right">
           <div className="editor-header">
-            <span>Python</span>
+            <div className="editor-header-left">
+              <select
+                className="language-selector"
+                value={language}
+                onChange={(e) => handleLanguageChange(e.target.value as SupportedLanguage)}
+              >
+                {LANGUAGES.map(lang => (
+                  <option key={lang.value} value={lang.value}>{lang.label}</option>
+                ))}
+              </select>
+            </div>
             <button className="btn-ghost btn-sm" onClick={handleReset}>
               <RotateCcw size={14} /> Reset
             </button>
           </div>
 
-          <textarea
-            className="code-editor"
-            value={userCode}
-            onChange={(e) => setUserCode(e.target.value)}
-            spellCheck={false}
-          />
-
-          <div className="editor-actions">
-            <button
-              className="btn-primary"
-              onClick={handleSubmit}
-              disabled={submitting}
-            >
-              {submitting ? <><Loader2 size={18} className="spinner" /> Evaluating...</> : <><Send size={18} /> Submit</>}
-            </button>
+          <div className="code-editor-container">
+            <CodeEditor
+              value={userCode}
+              onChange={setUserCode}
+              language={language}
+            />
           </div>
+
+          <TestCasePanel
+            testCases={testCases}
+            onTestCasesChange={setTestCases}
+            runResult={runResult}
+            isRunning={isRunning}
+            onRun={handleRunTests}
+            onSubmit={handleSubmit}
+            isSubmitting={submitting}
+          />
 
           {feedback && (
             <motion.div
