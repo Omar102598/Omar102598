@@ -2,7 +2,7 @@ import type { ChatMessage, Problem, Difficulty, TopicCategory, UserProgress } fr
 
 const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN as string | undefined;
 const GITHUB_MODELS_ENDPOINT = 'https://models.inference.ai.azure.com/chat/completions';
-const MODEL = 'openai/gpt-4o';
+const MODEL = 'gpt-4o';
 
 function buildSystemPrompt(): string {
   return `You are CodePrep AI, an expert coding interview coach specializing in preparing candidates for Software Engineer II positions at fintech companies like Affirm. You create LeetCode-style coding problems, evaluate solutions, and provide detailed explanations.
