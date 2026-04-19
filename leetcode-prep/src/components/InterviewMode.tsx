@@ -6,10 +6,19 @@ import {
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import type { Problem, UserProgress, ChatMessage, TopicCategory, Difficulty, SupportedLanguage } from '../types';
-import { generateProblem, conductInterview } from '../services/aiService';
+import { generateProblem, conductInterview, getStarterCodeForLanguage } from '../services/aiService';
 import { useTimer } from '../hooks/useTimer';
 import { topics } from '../data/topics';
 import CodeEditor from './CodeEditor';
+
+const LANGUAGES: { value: SupportedLanguage; label: string }[] = [
+  { value: 'python', label: 'Python' },
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'typescript', label: 'TypeScript' },
+  { value: 'java', label: 'Java' },
+  { value: 'cpp', label: 'C++' },
+  { value: 'go', label: 'Go' },
+];
 
 interface InterviewModeProps {
   progress: UserProgress;
@@ -37,7 +46,8 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
   const [problem, setProblem] = useState<Problem | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [userCode, setUserCode] = useState('');
-  const [interviewLang] = useState<SupportedLanguage>('python');
+  const [interviewLang, setInterviewLang] = useState<SupportedLanguage>('python');
+  const [codeByLang, setCodeByLang] = useState<Partial<Record<SupportedLanguage, string>>>({});
   const [chatInput, setChatInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false);
@@ -54,12 +64,30 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  const handleLanguageChange = (newLang: SupportedLanguage) => {
+    // Save current code for the current language
+    setCodeByLang(prev => ({ ...prev, [interviewLang]: userCode }));
+
+    // Load code for new language
+    const existingCode = codeByLang[newLang];
+    if (existingCode) {
+      setUserCode(existingCode);
+    } else if (problem) {
+      const starter = getStarterCodeForLanguage(problem, newLang);
+      setUserCode(starter);
+      setCodeByLang(prev => ({ ...prev, [newLang]: starter }));
+    }
+    setInterviewLang(newLang);
+  };
+
   const startInterview = async () => {
     setLoading(true);
     try {
       const generatedProblem = await generateProblem(config.difficulty, config.topic);
       setProblem(generatedProblem);
-      setUserCode(generatedProblem.starterCode);
+      const starter = getStarterCodeForLanguage(generatedProblem, interviewLang);
+      setUserCode(starter);
+      setCodeByLang({ [interviewLang]: starter });
 
       const initialMessage: ChatMessage = {
         role: 'assistant',
@@ -106,7 +134,7 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
 
     const codeMessage: ChatMessage = {
       role: 'user',
-      content: `Here's my solution:\n\n\`\`\`python\n${userCode}\n\`\`\`\n\nCan you review it and provide feedback?`,
+      content: `Here's my solution:\n\n\`\`\`${interviewLang}\n${userCode}\n\`\`\`\n\nCan you review it and provide feedback?`,
     };
     const updatedMessages = [...messages, codeMessage];
     setMessages(updatedMessages);
@@ -260,6 +288,8 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
               setMessages([]);
               setProblem(null);
               setUserCode('');
+              setCodeByLang({});
+              setInterviewLang('python');
             }}>
               Start New Interview
             </button>
@@ -353,7 +383,17 @@ export default function InterviewMode({ progress, onBack, onSave }: InterviewMod
 
         <div className="interview-editor">
           <div className="editor-header">
-            <span>Your Code (Python)</span>
+            <div className="editor-header-left">
+              <select
+                className="language-selector"
+                value={interviewLang}
+                onChange={(e) => handleLanguageChange(e.target.value as SupportedLanguage)}
+              >
+                {LANGUAGES.map(lang => (
+                  <option key={lang.value} value={lang.value}>{lang.label}</option>
+                ))}
+              </select>
+            </div>
             <button className="btn-secondary btn-sm" onClick={submitCode} disabled={sendingMessage}>
               Submit for Review
             </button>

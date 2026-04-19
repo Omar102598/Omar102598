@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Loader2, CheckCircle, XCircle, ArrowRight, Brain } from 'lucide-react';
-import type { Problem, UserProgress, TopicCategory, Difficulty } from '../types';
-import { generateProblem, evaluateSolution } from '../services/aiService';
+import { Loader2, CheckCircle, XCircle, ArrowRight, Brain, RotateCcw } from 'lucide-react';
+import type { Problem, UserProgress, TopicCategory, Difficulty, SupportedLanguage } from '../types';
+import { generateProblem, evaluateSolution, getStarterCodeForLanguage } from '../services/aiService';
+import CodeEditor from './CodeEditor';
+
+const LANGUAGES: { value: SupportedLanguage; label: string }[] = [
+  { value: 'python', label: 'Python' },
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'typescript', label: 'TypeScript' },
+  { value: 'java', label: 'Java' },
+  { value: 'cpp', label: 'C++' },
+  { value: 'go', label: 'Go' },
+];
 
 interface BaselineAssessmentProps {
   progress: UserProgress;
@@ -22,6 +32,8 @@ export default function BaselineAssessment({ progress, onComplete, onBack }: Bas
   const [currentStep, setCurrentStep] = useState(0);
   const [currentProblem, setCurrentProblem] = useState<Problem | null>(null);
   const [userCode, setUserCode] = useState('');
+  const [language, setLanguage] = useState<SupportedLanguage>('python');
+  const [codeByLang, setCodeByLang] = useState<Partial<Record<SupportedLanguage, string>>>({});
   const [loading, setLoading] = useState(false);
   const [evaluating, setEvaluating] = useState(false);
   const [results, setResults] = useState<Array<{ passed: boolean; score: number; topic: TopicCategory; difficulty: Difficulty }>>([]);
@@ -35,7 +47,9 @@ export default function BaselineAssessment({ progress, onComplete, onBack }: Bas
       const config = baselineConfig[currentStep];
       const problem = await generateProblem(config.difficulty, config.topic);
       setCurrentProblem(problem);
-      setUserCode(problem.starterCode);
+      const starter = getStarterCodeForLanguage(problem, language);
+      setUserCode(starter);
+      setCodeByLang({ [language]: starter });
       setPhase('solving');
     } catch (err) {
       console.error('Failed to generate problem:', err);
@@ -44,11 +58,34 @@ export default function BaselineAssessment({ progress, onComplete, onBack }: Bas
     }
   };
 
+  const handleLanguageChange = (newLang: SupportedLanguage) => {
+    // Save current code for current language
+    setCodeByLang(prev => ({ ...prev, [language]: userCode }));
+
+    // Load code for new language
+    const existingCode = codeByLang[newLang];
+    if (existingCode) {
+      setUserCode(existingCode);
+    } else if (currentProblem) {
+      const starter = getStarterCodeForLanguage(currentProblem, newLang);
+      setUserCode(starter);
+      setCodeByLang(prev => ({ ...prev, [newLang]: starter }));
+    }
+    setLanguage(newLang);
+  };
+
+  const handleReset = () => {
+    if (!currentProblem) return;
+    const starter = getStarterCodeForLanguage(currentProblem, language);
+    setUserCode(starter);
+    setCodeByLang(prev => ({ ...prev, [language]: starter }));
+  };
+
   const handleSubmit = async () => {
     if (!currentProblem) return;
     setEvaluating(true);
     try {
-      const result = await evaluateSolution(currentProblem, userCode);
+      const result = await evaluateSolution(currentProblem, userCode, language);
       const config = baselineConfig[currentStep];
       setResults((prev) => [...prev, {
         passed: result.passed,
@@ -112,6 +149,7 @@ export default function BaselineAssessment({ progress, onComplete, onBack }: Bas
     setCurrentStep((prev) => prev + 1);
     setCurrentProblem(null);
     setUserCode('');
+    setCodeByLang({});
     setFeedback(null);
     loadProblem();
   };
@@ -266,14 +304,29 @@ export default function BaselineAssessment({ progress, onComplete, onBack }: Bas
           )}
 
           <div className="code-editor-section">
-            <h3>Your Solution</h3>
-            <textarea
-              className="code-editor"
-              value={userCode}
-              onChange={(e) => setUserCode(e.target.value)}
-              spellCheck={false}
-              rows={15}
-            />
+            <div className="editor-header">
+              <div className="editor-header-left">
+                <select
+                  className="language-selector"
+                  value={language}
+                  onChange={(e) => handleLanguageChange(e.target.value as SupportedLanguage)}
+                >
+                  {LANGUAGES.map(lang => (
+                    <option key={lang.value} value={lang.value}>{lang.label}</option>
+                  ))}
+                </select>
+              </div>
+              <button className="btn-ghost btn-sm" onClick={handleReset}>
+                <RotateCcw size={14} /> Reset
+              </button>
+            </div>
+            <div className="code-editor-container">
+              <CodeEditor
+                value={userCode}
+                onChange={setUserCode}
+                language={language}
+              />
+            </div>
           </div>
 
           {phase === 'feedback' && feedback && (
