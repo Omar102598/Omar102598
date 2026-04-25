@@ -4,6 +4,7 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
+import { AlgoVisualizer } from './components/AlgoVisualizer';
 import { Contact } from './components/Contact';
 import { AIChatbot } from './components/AIChatbot';
 import { Footer } from './components/Footer';
@@ -21,6 +22,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
+        <AlgoVisualizer />
         <Contact />
       </main>
       <Footer />
