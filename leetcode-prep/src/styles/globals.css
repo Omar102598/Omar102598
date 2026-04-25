@@ -4198,6 +4198,143 @@ pre {
 .legend-dot.sw-removed    { background: #ef4444; }
 .legend-dot.sw-added      { background: #f59e0b; }
 
+/* ===== Tree Traversal ===== */
+.tree-svg-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.tree-svg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+.tree-result-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.tree-result-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 0.25rem;
+}
+
+.tree-result-val {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ===== Kadane's Algorithm ===== */
+.kadane-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.kadane-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.kadane-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kadane-stat-val {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.kadane-neg  { color: #ef4444; }
+.kadane-pos  { color: #22c55e; }
+.kadane-max  { color: #f59e0b; }
+
+/* Kadane's array cell states */
+.kadane-default    { background: var(--bg-secondary); color: var(--text-primary); border-color: var(--border); }
+.kadane-current    { background: rgba(239,68,68,0.3); color: #ef4444; border-color: #ef4444; transform: scale(1.12); box-shadow: 0 0 10px rgba(239,68,68,0.4); }
+.kadane-in-window  { background: rgba(59,130,246,0.25); color: #3b82f6; border-color: #3b82f6; }
+.kadane-max-window { background: rgba(245,158,11,0.25); color: #f59e0b; border-color: #f59e0b; transform: scale(1.06); box-shadow: 0 0 8px rgba(245,158,11,0.4); }
+
+/* Legend dot aliases — Kadane */
+.legend-dot.kadane-current    { background: #ef4444; }
+.legend-dot.kadane-in-window  { background: #3b82f6; }
+.legend-dot.kadane-max-window { background: #f59e0b; }
+.legend-dot.kadane-default    { background: var(--bg-secondary); border: 1px solid var(--border); }
+
+/* ===== Dijkstra's Algorithm ===== */
+.dijkstra-svg-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.dijkstra-svg {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+}
+
+.dijkstra-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 0.75rem;
+}
+
+.dijkstra-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.dijkstra-table th,
+.dijkstra-table td {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.dijkstra-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.dijkstra-td-settled {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.dijkstra-td-current {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  font-weight: 700;
+}
+
 @media (max-width: 600px) {
   .algo-categories {
     gap: 0.6rem;
