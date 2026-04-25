@@ -1,4 +1,4 @@
-import { Code2, BarChart3, Swords, BookOpen, GraduationCap } from 'lucide-react';
+import { Code2, BarChart3, Swords, BookOpen, GraduationCap, GitBranch } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import type { AppView } from '../types';
 
@@ -46,6 +46,13 @@ export default function Navbar({ theme, toggleTheme, currentView, onNavigate }: 
           >
             <Swords size={18} />
             <span>Interview</span>
+          </button>
+          <button
+            className={`nav-link ${currentView === 'visualizer' ? 'active' : ''}`}
+            onClick={() => onNavigate('visualizer')}
+          >
+            <GitBranch size={18} />
+            <span>Visualizer</span>
           </button>
         </div>
 

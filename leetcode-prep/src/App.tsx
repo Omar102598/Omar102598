@@ -10,6 +10,7 @@ import ProblemView from './components/ProblemView';
 import InterviewMode from './components/InterviewMode';
 import ArticleList from './components/ArticleList';
 import ArticleView from './components/ArticleView';
+import AlgoVisualizer from './components/AlgoVisualizer';
 import { articleMap } from './data/articles';
 import type { AppView, Problem, TopicCategory } from './types';
 
@@ -102,6 +103,8 @@ export default function App() {
           />
         );
       }
+      case 'visualizer':
+        return <AlgoVisualizer />;
       default:
         return <Dashboard progress={progress} onNavigate={handleNavigate} />;
     }

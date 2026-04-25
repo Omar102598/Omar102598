@@ -125,7 +125,8 @@ export type AppView =
   | 'interview'
   | 'interview-active'
   | 'articles'
-  | 'article-view';
+  | 'article-view'
+  | 'visualizer';
 
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
