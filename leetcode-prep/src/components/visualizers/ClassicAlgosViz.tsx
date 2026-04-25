@@ -58,7 +58,6 @@ function generateKadaneFrames(): KadaneFrame[] {
 
     const prevMax = maxSoFar;
     const prevMaxStart = maxStart;
-    const prevMaxEnd = maxEnd;
 
     if (maxEndingHere > maxSoFar) {
       maxSoFar = maxEndingHere;
