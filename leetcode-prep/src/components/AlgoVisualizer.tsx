@@ -4,14 +4,18 @@ import { GridTraversalViz } from './visualizers/GridTraversalViz';
 import { SortViz } from './visualizers/SortViz';
 import { BinarySearchViz } from './visualizers/BinarySearchViz';
 import { ArrayTechniquesViz } from './visualizers/ArrayTechniquesViz';
+import { TreeTraversalViz } from './visualizers/TreeTraversalViz';
+import { ClassicAlgosViz } from './visualizers/ClassicAlgosViz';
 
-type Category = 'graph' | 'sort' | 'search' | 'techniques';
+type Category = 'graph' | 'sort' | 'search' | 'techniques' | 'tree' | 'classic';
 
 const categories: { id: Category; emoji: string; label: string; desc: string }[] = [
   { id: 'graph', emoji: '🔍', label: 'Graph Traversal', desc: 'BFS & DFS' },
   { id: 'sort', emoji: '📊', label: 'Sorting', desc: 'Bubble · Selection · Insertion' },
   { id: 'search', emoji: '🎯', label: 'Binary Search', desc: 'Divide & Conquer' },
   { id: 'techniques', emoji: '🪟', label: 'Array Techniques', desc: 'Two Pointers · Sliding Window' },
+  { id: 'tree', emoji: '🌳', label: 'Tree Traversal', desc: 'Inorder · Preorder · Postorder · BFS' },
+  { id: 'classic', emoji: '⚡', label: 'Classic Algorithms', desc: "Kadane's · Dijkstra's" },
 ];
 
 export default function AlgoVisualizer() {
@@ -60,6 +64,8 @@ export default function AlgoVisualizer() {
         {active === 'sort' && <SortViz />}
         {active === 'search' && <BinarySearchViz />}
         {active === 'techniques' && <ArrayTechniquesViz />}
+        {active === 'tree' && <TreeTraversalViz />}
+        {active === 'classic' && <ClassicAlgosViz />}
       </motion.div>
     </div>
   );
