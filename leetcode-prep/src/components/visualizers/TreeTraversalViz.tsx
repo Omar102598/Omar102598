@@ -324,7 +324,7 @@ const ALGO_INFO: Record<TraversalAlgo, { time: string; space: string; order: str
   },
 };
 
-const SPEEDS: Record<string, number> = { slow: 900, normal: 400, fast: 120 };
+const SPEEDS: Record<'slow' | 'normal' | 'fast', number> = { slow: 900, normal: 400, fast: 120 };
 
 // ─── Core visualizer ─────────────────────────────────────────────────────────
 

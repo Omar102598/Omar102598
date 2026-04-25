@@ -103,7 +103,7 @@ function generateKadaneFrames(): KadaneFrame[] {
   return frames;
 }
 
-const KADANE_SPEEDS: Record<string, number> = { slow: 1200, normal: 500, fast: 150 };
+const VIZ_SPEEDS: Record<'slow' | 'normal' | 'fast', number> = { slow: 1200, normal: 500, fast: 150 };
 
 function KadanesViz() {
   const frames = useMemo(generateKadaneFrames, []);
@@ -121,7 +121,7 @@ function KadanesViz() {
       const next = frameIdx + 1;
       setFrameIdx(next);
       if (next >= frames.length - 1) setPlaying(false);
-    }, KADANE_SPEEDS[speed]);
+    }, VIZ_SPEEDS[speed]);
     return () => clearTimeout(t);
   }, [playing, frameIdx, frames, speed, isDone]);
 
@@ -457,6 +457,12 @@ function DijkstraSVG({ frame }: { frame: DijkFrame }) {
   );
 }
 
+function distCellClass(state: DijkNodeState): string {
+  if (state === 'settled') return 'dijkstra-td-settled';
+  if (state === 'current') return 'dijkstra-td-current';
+  return '';
+}
+
 function DistanceTable({ frame }: { frame: DijkFrame }) {
   return (
     <div className="dijkstra-table-wrap">
@@ -471,7 +477,7 @@ function DistanceTable({ frame }: { frame: DijkFrame }) {
           <tr>
             <td>Dist</td>
             {frame.dist.map((d, i) => (
-              <td key={i} className={`dijkstra-td ${frame.nodeStates[i] === 'settled' ? 'dijkstra-td-settled' : frame.nodeStates[i] === 'current' ? 'dijkstra-td-current' : ''}`}>
+              <td key={i} className={`dijkstra-td ${distCellClass(frame.nodeStates[i])}`}>
                 {d === INF ? '∞' : d}
               </td>
             ))}
@@ -488,7 +494,7 @@ function DistanceTable({ frame }: { frame: DijkFrame }) {
   );
 }
 
-const DIJK_SPEEDS: Record<string, number> = { slow: 1200, normal: 500, fast: 150 };
+const DIJK_SPEEDS = VIZ_SPEEDS;
 
 function DijkstraViz() {
   const frames = useMemo(generateDijkstraFrames, []);
