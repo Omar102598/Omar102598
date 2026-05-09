@@ -28,6 +28,7 @@ jobs:
             website/package-lock.json
             fitness-site/package-lock.json
             leetcode-prep/package-lock.json
+            tech-newsletter/package-lock.json
 
       # Build portfolio website
       - name: Install portfolio dependencies
@@ -62,6 +63,15 @@ jobs:
           VITE_GITHUB_TOKEN: ${{ secrets.COPILOT_API_KEY }}
         run: npm run build
 
+      # Build tech-newsletter site
+      - name: Install tech-newsletter dependencies
+        working-directory: tech-newsletter
+        run: npm install
+
+      - name: Build tech-newsletter
+        working-directory: tech-newsletter
+        run: npm run build
+
       # Merge both builds into a single artifact
       - name: Merge build outputs
         run: |
@@ -71,6 +81,8 @@ jobs:
           cp -r fitness-site/dist/* _site/fitness/
           mkdir -p _site/leetcode-prep
           cp -r leetcode-prep/dist/* _site/leetcode-prep/
+          mkdir -p _site/tech-newsletter
+          cp -r tech-newsletter/dist/* _site/tech-newsletter/
 
       - uses: actions/upload-pages-artifact@v3
         with:
