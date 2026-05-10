@@ -25,9 +25,17 @@ export interface Category {
   subCategories: SubCategory[];
 }
 
-export const NEWSLETTER_DATE = 'May 9, 2026';
+export interface NewsData {
+  categories: Category[];
+  date: string;
+  isStale: boolean;
+}
 
-export const categories: Category[] = [
+function formatDate(d: Date): string {
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+const MAY_9_2026_CATEGORIES: Category[] = [
   {
     id: 'technology',
     name: 'Technology',
@@ -671,3 +679,29 @@ export const categories: Category[] = [
     ],
   },
 ];
+
+// All available newsletter data keyed by date string (add new dates here as they become available)
+export const allNewsData: Record<string, Category[]> = {
+  'May 9, 2026': MAY_9_2026_CATEGORIES,
+};
+
+// Precomputed so sorting doesn't happen on every getNewsData() call
+const sortedDates = Object.keys(allNewsData).sort(
+  (a, b) => new Date(b).getTime() - new Date(a).getTime(),
+);
+
+export function getNewsData(): NewsData {
+  const today = formatDate(new Date());
+
+  if (allNewsData[today]) {
+    return { categories: allNewsData[today], date: today, isStale: false };
+  }
+
+  // Fall back to the most recent date we have data for
+  const latestDate = sortedDates[0];
+  return { categories: allNewsData[latestDate], date: latestDate, isStale: true };
+}
+
+// Kept for backward compatibility
+export const categories = MAY_9_2026_CATEGORIES;
+export const NEWSLETTER_DATE = 'May 9, 2026';

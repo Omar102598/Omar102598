@@ -5,11 +5,13 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { CategorySection } from './components/CategorySection';
 import { Footer } from './components/Footer';
-import { categories } from './data/news';
+import { StaleBanner } from './components/StaleBanner';
+import { getNewsData } from './data/news';
 import './styles/globals.css';
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
+  const { categories, date, isStale } = getNewsData();
   const [activeCategory, setActiveCategory] = useState('technology');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -48,7 +50,9 @@ export default function App() {
         onSelectCategory={setActiveCategory}
       />
 
-      <Hero />
+      <Hero date={date} categories={categories} />
+
+      {isStale && <StaleBanner date={date} />}
 
       {/* Mobile category tabs */}
       <div className="mobile-tabs">

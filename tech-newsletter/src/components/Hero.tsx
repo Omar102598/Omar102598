@@ -1,6 +1,11 @@
-import { NEWSLETTER_DATE, categories } from '../data/news';
+import type { Category } from '../data/news';
 
-export function Hero() {
+interface HeroProps {
+  date: string;
+  categories: Category[];
+}
+
+export function Hero({ date, categories }: HeroProps) {
   const totalArticles = categories.reduce(
     (acc, cat) => acc + cat.subCategories.reduce((a, sub) => a + sub.articles.length, 0),
     0,
@@ -11,7 +16,7 @@ export function Hero() {
     <section className="hero">
       <div className="hero__eyebrow">
         <span>📡</span>
-        Daily Digest — {NEWSLETTER_DATE}
+        Daily Digest — {date}
       </div>
       <h1 className="hero__title">
         Stay Ahead of the Curve.<br />
