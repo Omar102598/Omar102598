@@ -1,0 +1,52 @@
+name: Daily News Update
+
+# Runs automatically every day at 06:00 UTC.
+# Can also be triggered manually from the Actions tab at any time.
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # push updated news.ts
+  actions: write    # trigger the deploy workflow after commit
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Fetch headlines → call GitHub Models API → update news.ts
+      - name: Fetch and generate daily news
+        env:
+          MODELS_API_KEY: ${{ secrets.COPILOT_API_KEY }}
+        run: node scripts/fetch-news.js
+
+      # Commit the updated news.ts if it changed
+      - name: Commit updated news data
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tech-newsletter/src/data/news.ts
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes — news.ts is already up-to-date."
+          else
+            git commit -m "chore: daily news update $(date -u '+%B %d, %Y')"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Re-deploy the site so the fresh news is live immediately
+      - name: Trigger site redeploy
+        if: steps.commit.outputs.changed == 'true'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
