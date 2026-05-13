@@ -680,8 +680,123 @@ const MAY_9_2026_CATEGORIES: Category[] = [
   },
 ];
 
+const MAY_13_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "gen-ai-1",
+            "date": "May 13, 2026",
+            "title": "Medicare&#8217;s new payment model is built for AI, and most of the tech world has no idea",
+            "summary": "Medicare's latest payment model is designed to integrate AI technologies, potentially transforming healthcare delivery. However, many in the tech industry remain unaware of its implications and opportunities.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/12/medicares-new-payment-model-is-built-for-ai-and-most-of-the-tech-world-has-no-idea/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "gen-ai-2",
+            "date": "May 13, 2026",
+            "title": "Potholes cost cities millions: This company is using AI and trucks to fix them",
+            "summary": "A new startup is leveraging AI and specialized trucks to tackle the persistent issue of potholes, aiming to save cities millions in repair costs. This innovative approach could redefine urban infrastructure maintenance.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/12/potholes-cost-cities-millions-samsara-using-ai-trucks-fix/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "webdev",
+        "name": "Web Development",
+        "icon": "🌐",
+        "articles": [
+          {
+            "id": "webdev-1",
+            "date": "May 13, 2026",
+            "title": "Everything Google announced at its Android Show, from Googlebooks to vibe-coded widgets",
+            "summary": "Google's recent Android Show unveiled exciting new features, including the introduction of Googlebooks and innovative vibe-coded widgets. These updates promise to enhance user experience and interactivity across Android devices.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/05/12/everything-google-announced-at-its-android-show-from-googlebooks-to-vibe-coded-widgets/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "webdev-2",
+            "date": "May 13, 2026",
+            "title": "Android is getting a big AI overhaul in 2026",
+            "summary": "In a significant update, Android is set to undergo a major AI overhaul this year, promising smarter features and enhanced performance. This move reflects the growing trend of integrating AI into mobile operating systems.",
+            "tag": "Algorithm",
+            "url": "https://arstechnica.com/gadgets/2026/05/google-says-android-is-getting-a-big-ai-overhaul-in-2026/",
+            "source": "arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "bio-1",
+            "date": "May 13, 2026",
+            "title": "Scientists discover a weak spot shared by polio and common cold viruses",
+            "summary": "Researchers have identified a common vulnerability in both polio and common cold viruses, opening new avenues for vaccine development and treatment strategies. This discovery could significantly impact public health initiatives.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260512202320.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "bio-2",
+            "date": "May 13, 2026",
+            "title": "Scientists make old blood stem cells young again in major anti-aging breakthrough",
+            "summary": "A groundbreaking study reveals that scientists have successfully rejuvenated old blood stem cells, potentially paving the way for new anti-aging therapies. This research could revolutionize how we approach age-related diseases.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260511213204.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "climate",
+        "name": "Climate & Environment",
+        "icon": "🌍",
+        "articles": [
+          {
+            "id": "climate-1",
+            "date": "May 13, 2026",
+            "title": "Scientists say this algae could remove microplastics from drinking water",
+            "summary": "A new study suggests that a specific type of algae could effectively filter microplastics from drinking water, offering a sustainable solution to a growing environmental crisis. This discovery highlights the potential of natural resources in combating pollution.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260511213201.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 13, 2026': MAY_13_2026_CATEGORIES,
   'May 9, 2026': MAY_9_2026_CATEGORIES,
 };
 
