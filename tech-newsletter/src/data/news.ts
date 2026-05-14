@@ -794,8 +794,131 @@ const MAY_13_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_14_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 14, 2026",
+            "title": "Who decides what AI tells you? Campbell Brown, once Meta's news chief, has thoughts",
+            "summary": "In a thought-provoking discussion, Campbell Brown reflects on the ethical implications of AI decision-making and the responsibilities of tech companies in shaping public discourse. As AI systems become more integrated into our daily lives, understanding who controls the narrative is crucial.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/13/who-decides-what-ai-tells-you-campbell-brown-once-metas-news-chief-has-thoughts/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 14, 2026",
+            "title": "Anthropic's Cat Wu says that, in the future, AI will anticipate your needs before you know what they are",
+            "summary": "Cat Wu from Anthropic discusses the future of AI, envisioning systems that can predict user needs with remarkable accuracy. This advancement could redefine user interaction and personalization in technology.",
+            "tag": "Research",
+            "url": "https://techcrunch.com/2026/05/13/anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "May 14, 2026",
+            "title": "Geothermal startup Fervo Energy pops 33% in IPO debut fueled by AI data center demand",
+            "summary": "Fervo Energy's IPO has seen a remarkable 33% increase, driven by the growing demand for sustainable energy solutions in AI data centers. This milestone highlights the intersection of renewable energy and technology, paving the way for greener cloud computing.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/13/geothermal-startup-fervo-energy-pops-33-in-ipo-debut-fueled-by-ai-data-center-demand/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "May 14, 2026",
+            "title": "Quantum breakthrough could revolutionize teleportation and computing",
+            "summary": "A recent quantum breakthrough promises to transform the fields of teleportation and computing, potentially leading to unprecedented advancements in technology. Researchers are optimistic about the implications this could have for future applications.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260513034640.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 14, 2026",
+            "title": "Earth is flying through ancient supernova debris and scientists found the evidence in Antarctic ice",
+            "summary": "Scientists have discovered evidence of ancient supernova debris embedded in Antarctic ice, revealing that Earth is currently traversing through this cosmic material. This finding opens new avenues for understanding the history of our planet and the universe.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260513221751.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantum",
+    "name": "Quantum Computing",
+    "icon": "⚡",
+    "color": "#a855f7",
+    "gradient": "linear-gradient(135deg, #a855f7, #ec4899)",
+    "description": "The frontier of computation — algorithms, hardware, cryptography, and networking.",
+    "subCategories": [
+      {
+        "id": "quantum-algorithms",
+        "name": "Quantum Algorithms",
+        "icon": "📐",
+        "articles": [
+          {
+            "id": "quantum-algorithms-1",
+            "date": "May 14, 2026",
+            "title": "New quantum algorithm solves “impossible” materials problem in seconds",
+            "summary": "A groundbreaking quantum algorithm has been developed that can solve complex materials problems in mere seconds, a feat previously thought impossible. This advancement could significantly accelerate research in materials science and engineering.",
+            "tag": "Algorithm",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260512202355.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 14, 2026': MAY_14_2026_CATEGORIES,
   'May 13, 2026': MAY_13_2026_CATEGORIES,
   'May 9, 2026': MAY_9_2026_CATEGORIES,
 };
