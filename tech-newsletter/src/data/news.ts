@@ -916,8 +916,105 @@ const MAY_14_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_15_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 15, 2026",
+            "title": "OpenAI says Codex is coming to your phone",
+            "summary": "OpenAI is expanding the accessibility of its Codex model by integrating it into mobile devices, allowing users to leverage AI-driven coding assistance on the go. This move is expected to enhance productivity for developers and non-developers alike.",
+            "tag": "Model Release",
+            "url": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 15, 2026",
+            "title": "OpenAI’s Codex is now in the ChatGPT mobile app",
+            "summary": "The integration of Codex into the ChatGPT mobile app marks a significant step in making AI-assisted coding more accessible. Users can now utilize Codex's capabilities directly from their smartphones, streamlining the coding process.",
+            "tag": "Model Release",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/930763/openai-codex-chatgpt-ios-android-app-preview",
+            "source": "theverge.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 15, 2026",
+            "title": "Zero-day exploit completely defeats default Windows 11 BitLocker protections",
+            "summary": "A newly discovered zero-day exploit has raised alarms as it bypasses the default protections of Windows 11's BitLocker encryption. This vulnerability poses significant risks for users relying on BitLocker for data security.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/05/zero-day-exploit-completely-defeats-default-windows-11-bitlocker-protections/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 15, 2026",
+            "title": "A grad student’s wild idea sparks a major aging breakthrough",
+            "summary": "A groundbreaking study led by a graduate student has unveiled new insights into the aging process, potentially paving the way for innovative treatments. This research could revolutionize how we understand and address age-related diseases.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260515001733.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 15, 2026",
+            "title": "Scientists discover a mysterious asteroid breaking apart near the Sun",
+            "summary": "Astronomers have observed an unusual asteroid disintegrating as it approaches the Sun, raising questions about its origin and composition. This discovery could provide valuable insights into the dynamics of solar system bodies.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260513221812.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 15, 2026': MAY_15_2026_CATEGORIES,
   'May 14, 2026': MAY_14_2026_CATEGORIES,
   'May 13, 2026': MAY_13_2026_CATEGORIES,
   'May 9, 2026': MAY_9_2026_CATEGORIES,
