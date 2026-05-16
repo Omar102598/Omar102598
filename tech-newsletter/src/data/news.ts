@@ -1012,8 +1012,98 @@ const MAY_15_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_16_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 16, 2026",
+            "title": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
+            "summary": "OpenAI has unveiled a new version of ChatGPT tailored for personal finance, allowing users to connect their bank accounts for personalized financial advice. This move aims to enhance user engagement and provide actionable insights into financial management.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 16, 2026",
+            "title": "YouTube is expanding its AI deepfake detection tool to all adult users",
+            "summary": "YouTube is rolling out its AI-driven deepfake detection tool to all adult users, aiming to combat misinformation and enhance content authenticity. This expansion reflects the platform's commitment to maintaining trust and safety in its community.",
+            "tag": "Policy",
+            "url": "https://www.theverge.com/news/931884/youtube-likeness-detection-ai-deepfake-expansion-all-adults",
+            "source": "theverge.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 16, 2026",
+            "title": "A hotel check-in system left a million passports and driver's licenses open for anyone to see",
+            "summary": "A significant data breach involving a hotel check-in system has exposed the personal information of over a million guests, including passports and driver's licenses. This incident raises serious concerns about data security practices in the hospitality industry.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/05/15/a-hotel-check-in-system-left-a-million-passports-and-drivers-licenses-open-for-anyone-to-see/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 16, 2026",
+            "title": "NASA’s new AI space chip could let spacecraft think for themselves",
+            "summary": "NASA has developed a groundbreaking AI space chip designed to enable spacecraft to make autonomous decisions. This innovation could revolutionize space exploration by allowing missions to adapt in real-time to unforeseen challenges.",
+            "tag": "Hardware",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260515002134.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "space-2",
+            "date": "May 16, 2026",
+            "title": "NASA’s Roman Space Telescope could reveal millions of invisible neutron stars",
+            "summary": "The upcoming Roman Space Telescope is set to uncover millions of invisible neutron stars, providing new insights into the universe's most enigmatic objects. This mission promises to enhance our understanding of stellar evolution and cosmic phenomena.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260515002130.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 16, 2026': MAY_16_2026_CATEGORIES,
   'May 15, 2026': MAY_15_2026_CATEGORIES,
   'May 14, 2026': MAY_14_2026_CATEGORIES,
   'May 13, 2026': MAY_13_2026_CATEGORIES,
