@@ -1101,8 +1101,123 @@ const MAY_16_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_17_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 17, 2026",
+            "title": "The haves and have nots of the AI gold rush",
+            "summary": "A new analysis explores the disparities in the AI industry, highlighting how access to resources and funding can create a divide between successful startups and those struggling to gain traction. The report emphasizes the need for equitable opportunities in this rapidly evolving field.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/05/16/the-haves-and-have-nots-of-the-ai-gold-rush/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 17, 2026",
+            "title": "Research repository ArXiv will ban authors for a year if they let AI do all the work",
+            "summary": "In a bold move to maintain academic integrity, ArXiv has announced that it will impose a one-year ban on authors who submit papers generated entirely by AI. This decision aims to encourage genuine human contribution in research and uphold the quality of scholarly work.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/16/research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 17, 2026",
+            "title": "The US is betting on AI to catch insider trading in prediction markets",
+            "summary": "The U.S. government is leveraging AI technology to enhance its capabilities in detecting insider trading within prediction markets. This initiative aims to improve market integrity and ensure fair trading practices in the evolving landscape of financial technology.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/tech-policy/2026/05/the-us-is-betting-on-ai-to-catch-insider-trading-in-prediction-markets/",
+            "source": "feeds.arstechnica.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "May 17, 2026",
+            "title": "Anthropic’s $1.5B copyright settlement is getting messy as judge delays approval",
+            "summary": "The ongoing legal battle surrounding Anthropic's $1.5 billion copyright settlement has hit a snag as a judge has delayed approval. This case highlights the complexities of copyright in the age of AI and raises questions about fair compensation for creators.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/tech-policy/2026/05/authors-fight-for-higher-payouts-from-anthropics-1-5b-copyright-settlement/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 17, 2026",
+            "title": "First-ever direct image of the cosmic web reveals the Universe’s hidden highways",
+            "summary": "For the first time, scientists have captured a direct image of the cosmic web, unveiling the vast network of filaments that connect galaxies across the universe. This groundbreaking discovery enhances our understanding of cosmic structure and the evolution of the universe.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260516034136.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 17, 2026",
+            "title": "Scientists reversed memory loss by recharging the brain’s tiny engines",
+            "summary": "Researchers have made a significant breakthrough by successfully reversing memory loss in subjects by recharging the brain's mitochondria, the tiny engines responsible for energy production. This discovery could pave the way for new treatments for neurodegenerative diseases.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260515234803.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "biology-2",
+            "date": "May 17, 2026",
+            "title": "Scientists find hidden brain nutrient deficit that may fuel anxiety",
+            "summary": "A new study has identified a previously overlooked nutrient deficit in the brain that may contribute to anxiety disorders. This finding opens up potential avenues for targeted nutritional interventions in mental health treatment.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260515234759.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 17, 2026': MAY_17_2026_CATEGORIES,
   'May 16, 2026': MAY_16_2026_CATEGORIES,
   'May 15, 2026': MAY_15_2026_CATEGORIES,
   'May 14, 2026': MAY_14_2026_CATEGORIES,
