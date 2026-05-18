@@ -1215,8 +1215,124 @@ const MAY_17_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_18_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "May 18, 2026",
+            "title": "Apple’s Siri revamp could include auto-deleting chats",
+            "summary": "Apple is reportedly planning a significant revamp of Siri, which may include features like auto-deleting chats to enhance user privacy. This move reflects a growing trend among tech companies to prioritize data security and user control.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-gen-2",
+            "date": "May 18, 2026",
+            "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+            "summary": "The ongoing trial involving Elon Musk and OpenAI raises critical questions about trust in AI technologies. As the case unfolds, it highlights the complexities of accountability and ethical considerations in the rapidly evolving AI landscape.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-gen-3",
+            "date": "May 18, 2026",
+            "title": "Research repository ArXiv will ban authors for a year if they let AI do all the work",
+            "summary": "In a bold move, ArXiv has announced that authors who rely solely on AI for their submissions will face a one-year ban. This policy aims to maintain academic integrity and encourage genuine human contribution in research.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/16/research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "May 18, 2026",
+            "title": "AI reveals the invisible magnetic chaos wasting energy inside electric motors",
+            "summary": "Recent advancements in AI have enabled scientists to visualize the chaotic magnetic fields that lead to energy loss in electric motors. This breakthrough could pave the way for more efficient motor designs, significantly impacting energy consumption.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260517211433.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "materials",
+        "name": "Materials Science",
+        "icon": "🧪",
+        "articles": [
+          {
+            "id": "materials-1",
+            "date": "May 18, 2026",
+            "title": "The “impossible” LED that could change everything",
+            "summary": "A new type of LED, once thought impossible to create, has been developed, promising to revolutionize lighting technology. This innovation could lead to more energy-efficient solutions and a significant reduction in electricity consumption.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260518011222.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantum",
+    "name": "Quantum Computing",
+    "icon": "⚡",
+    "color": "#a855f7",
+    "gradient": "linear-gradient(135deg, #a855f7, #ec4899)",
+    "description": "The frontier of computation — algorithms, hardware, cryptography, and networking.",
+    "subCategories": [
+      {
+        "id": "quantum-hardware",
+        "name": "Quantum Hardware",
+        "icon": "🖥️",
+        "articles": [
+          {
+            "id": "quantum-hardware-1",
+            "date": "May 18, 2026",
+            "title": "Quantum ghost imaging works using only sunlight in stunning new experiment",
+            "summary": "Researchers have successfully demonstrated quantum ghost imaging using only sunlight, marking a significant advancement in quantum optics. This technique could have far-reaching applications in imaging technologies and environmental monitoring.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260517211424.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 18, 2026': MAY_18_2026_CATEGORIES,
   'May 17, 2026': MAY_17_2026_CATEGORIES,
   'May 16, 2026': MAY_16_2026_CATEGORIES,
   'May 15, 2026': MAY_15_2026_CATEGORIES,
