@@ -1330,8 +1330,121 @@ const MAY_18_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_19_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 19, 2026",
+            "title": "SandboxAQ brings its drug discovery models to Claude — no PhD in computing required",
+            "summary": "SandboxAQ is democratizing drug discovery by integrating its advanced models with Claude, making it accessible for users without a PhD in computing. This move could significantly accelerate the pace of pharmaceutical innovation.",
+            "url": "https://techcrunch.com/2026/05/18/sandboxaq-brings-its-drug-discovery-models-to-claude-no-phd-in-computing-required/",
+            "source": "techcrunch.com",
+            "tag": "Startup"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 19, 2026",
+            "title": "Amazon's new Alexa+ powered feature can generate podcast episodes",
+            "summary": "Amazon has unveiled a new feature for Alexa+ that allows users to generate podcast episodes effortlessly. This innovation aims to enhance user engagement and expand the capabilities of voice-activated technology.",
+            "url": "https://techcrunch.com/2026/05/18/amazons-new-alexa-powered-feature-can-generate-podcast-episodes/",
+            "source": "techcrunch.com",
+            "tag": "Feature"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 19, 2026",
+            "title": "NYC Health + Hospitals says hackers stole medical data and fingerprints during breach affecting at least 1.8 million people",
+            "summary": "A significant data breach at NYC Health + Hospitals has compromised sensitive medical data and fingerprints of approximately 1.8 million individuals. This incident raises serious concerns about data security in healthcare institutions.",
+            "url": "https://techcrunch.com/2026/05/18/nyc-health-and-hospitals-says-hackers-stole-medical-data-and-fingerprints-during-breach-affecting-at-least-1-8-million-people/",
+            "source": "techcrunch.com",
+            "tag": "Breach"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "May 19, 2026",
+            "title": "String theory suddenly emerged from simple physics rules",
+            "summary": "Recent research suggests that string theory, a complex framework in theoretical physics, can be derived from basic physical principles. This breakthrough could reshape our understanding of fundamental forces in the universe.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260518041424.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 19, 2026",
+            "title": "NASA’s powerful Roman Space Telescope is about to transform astronomy",
+            "summary": "NASA's upcoming Roman Space Telescope is set to revolutionize our understanding of the cosmos with its advanced capabilities. This telescope will enable unprecedented observations, potentially uncovering new celestial phenomena.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260518041345.htm",
+            "source": "sciencedaily.com",
+            "tag": "Milestone"
+          }
+        ]
+      },
+      {
+        "id": "climate",
+        "name": "Climate & Environment",
+        "icon": "🌍",
+        "articles": [
+          {
+            "id": "climate-1",
+            "date": "May 19, 2026",
+            "title": "Antarctic glacier collapses at record speed as Hektoria retreats 15 miles in just 15 months",
+            "summary": "The rapid retreat of the Hektoria glacier in Antarctica, which has moved 15 miles in just over a year, highlights the alarming pace of climate change. This event raises concerns about rising sea levels and global warming impacts.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260518041417.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 19, 2026': MAY_19_2026_CATEGORIES,
   'May 18, 2026': MAY_18_2026_CATEGORIES,
   'May 17, 2026': MAY_17_2026_CATEGORIES,
   'May 16, 2026': MAY_16_2026_CATEGORIES,
