@@ -1442,8 +1442,116 @@ const MAY_19_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_20_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 20, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows users to analyze the outputs of large language models (LLMs) through a behavioral health monitor. This innovative approach aims to enhance the understanding of LLM behavior and improve their applications in various fields.",
+            "tag": "Research",
+            "url": "https://splabs.io",
+            "source": "splabs.io"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 20, 2026",
+            "title": "Google just declared itself a contender in AI design at IO 2026",
+            "summary": "At Google I/O 2026, the tech giant unveiled its ambitious plans to dominate the AI design space, showcasing new tools and features that promise to revolutionize how designers and developers interact with AI technologies.",
+            "tag": "Milestone",
+            "url": "https://techcrunch.com/2026/05/19/ai-design-tools-are-the-next-big-battleground-and-google-is-going-all-in-at-io-2026/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-3",
+            "date": "May 20, 2026",
+            "title": "You can now talk to your Gmail inbox, as seen at Google IO 2026",
+            "summary": "Google has introduced a groundbreaking feature that allows users to interact with their Gmail inbox using voice commands. This innovation aims to streamline email management and enhance user experience.",
+            "tag": "Milestone",
+            "url": "https://techcrunch.com/2026/05/19/you-can-now-talk-to-your-gmail-inbox-as-seen-at-google-io-2026/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 20, 2026",
+            "title": "FBI seeks US-wide access to license plate cameras, wants 'data in near real time'",
+            "summary": "The FBI is pushing for nationwide access to license plate recognition cameras, aiming to obtain data in near real time. This controversial request raises significant privacy concerns and highlights the ongoing debate over surveillance and civil liberties.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/tech-policy/2026/05/fbi-seeks-us-wide-access-to-license-plate-cameras-wants-data-in-near-real-time/",
+            "source": "feeds.arstechnica.com"
+          },
+          {
+            "id": "cybersecurity-2",
+            "date": "May 20, 2026",
+            "title": "From teen hacker to Iron Dome researcher, this founder raised $28M to fight AI phishing",
+            "summary": "A young entrepreneur has successfully raised $28 million to develop solutions aimed at combating AI-driven phishing attacks. This initiative reflects the growing need for advanced cybersecurity measures in an increasingly digital landscape.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/19/from-teen-hacker-to-iron-dome-researcher-this-founder-raised-28m-to-fight-ai-phishing/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 20, 2026",
+            "title": "Scientists use DNA from poop to save the world’s rarest marsupial",
+            "summary": "In a groundbreaking effort, scientists are utilizing DNA extracted from feces to aid in the conservation of the world's rarest marsupial. This innovative approach highlights the potential of genetic research in wildlife preservation.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260519224319.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "biology-2",
+            "date": "May 20, 2026",
+            "title": "Breakthrough drug reverses aging in skin and dramatically speeds healing",
+            "summary": "A new drug has shown promise in reversing skin aging and significantly accelerating the healing process. This breakthrough could have profound implications for dermatology and regenerative medicine.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260519003215.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 20, 2026': MAY_20_2026_CATEGORIES,
   'May 19, 2026': MAY_19_2026_CATEGORIES,
   'May 18, 2026': MAY_18_2026_CATEGORIES,
   'May 17, 2026': MAY_17_2026_CATEGORIES,
