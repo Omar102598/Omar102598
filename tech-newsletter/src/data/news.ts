@@ -1549,8 +1549,124 @@ const MAY_20_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_21_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 21, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows developers to analyze the outputs of their large language models (LLMs) effectively. This behavioral health monitor aims to enhance the reliability and safety of AI-generated content, making it a significant step forward in responsible AI deployment.",
+            "url": "https://splabs.io",
+            "source": "splabs.io",
+            "tag": "Research"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 21, 2026",
+            "title": "Google publishes exploit code threatening millions of Chromium users",
+            "summary": "In a controversial move, Google has released exploit code that could potentially compromise millions of users of Chromium-based browsers. This decision raises significant concerns about security practices and the implications for user safety in the digital landscape.",
+            "url": "https://arstechnica.com/security/2026/05/google-publishes-exploit-code-threatening-millions-of-chromium-users/",
+            "source": "arstechnica.com",
+            "tag": "Breach"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 21, 2026",
+            "title": "MIT scientists discover amino acid that helps the gut heal itself",
+            "summary": "Researchers at MIT have identified a specific amino acid that plays a crucial role in gut healing. This discovery could pave the way for new treatments for gastrointestinal diseases and improve overall gut health.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260520233223.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          },
+          {
+            "id": "biology-2",
+            "date": "May 21, 2026",
+            "title": "Scientists discover the nutrient that can supercharge cellular energy",
+            "summary": "A groundbreaking study has revealed a nutrient that significantly boosts cellular energy production. This finding has potential implications for enhancing physical performance and combating fatigue-related disorders.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260520233221.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          },
+          {
+            "id": "biology-3",
+            "date": "May 21, 2026",
+            "title": "Scientists found a hidden Alzheimer’s trigger and shut it down",
+            "summary": "In a significant breakthrough, scientists have identified and successfully neutralized a previously unknown trigger for Alzheimer's disease. This discovery opens new avenues for therapeutic interventions aimed at preventing or slowing the progression of this debilitating condition.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260519224334.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantum",
+    "name": "Quantum Computing",
+    "icon": "⚡",
+    "color": "#a855f7",
+    "gradient": "linear-gradient(135deg, #a855f7, #ec4899)",
+    "description": "The frontier of computation — algorithms, hardware, cryptography, and networking.",
+    "subCategories": [
+      {
+        "id": "quantum-hardware",
+        "name": "Quantum Hardware",
+        "icon": "🖥️",
+        "articles": [
+          {
+            "id": "quantum-hardware-1",
+            "date": "May 21, 2026",
+            "title": "New quantum sensor could count individual photons and hunt dark matter",
+            "summary": "A novel quantum sensor has been developed that can count individual photons, providing a powerful tool for researchers in the quest to detect dark matter. This advancement could significantly enhance our understanding of the universe's fundamental components.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260520093654.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 21, 2026': MAY_21_2026_CATEGORIES,
   'May 20, 2026': MAY_20_2026_CATEGORIES,
   'May 19, 2026': MAY_19_2026_CATEGORIES,
   'May 18, 2026': MAY_18_2026_CATEGORIES,
