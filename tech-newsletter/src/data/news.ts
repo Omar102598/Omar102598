@@ -1664,8 +1664,107 @@ const MAY_21_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_22_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "gen-ai-1",
+            "date": "May 22, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows users to analyze the outputs of large language models (LLMs) through a behavioral health monitor. This innovative approach aims to enhance the understanding of LLM behavior and improve their applications in various fields.",
+            "tag": "Research",
+            "url": "https://splabs.io",
+            "source": "splabs.io"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": []
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": []
+      },
+      {
+        "id": "webdev",
+        "name": "Web Development",
+        "icon": "🌐",
+        "articles": []
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "bio-1",
+            "date": "May 22, 2026",
+            "title": "Scientists discover a two-stage aging process that may cause cancer and arthritis",
+            "summary": "Researchers have identified a two-stage aging process that could be linked to the development of cancer and arthritis. This discovery opens new avenues for understanding age-related diseases and potential therapeutic interventions.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260521072420.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "bio-2",
+            "date": "May 22, 2026",
+            "title": "“Zombie cells” aren’t always bad and that could transform anti-aging medicine",
+            "summary": "New research suggests that 'zombie cells', often associated with aging, may not always be detrimental. This finding could revolutionize anti-aging treatments by shifting the focus on how these cells can be managed rather than eliminated.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260521072402.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 22, 2026",
+            "title": "James Webb discovers a rare giant planet with surprisingly Earth-like temperatures",
+            "summary": "The James Webb Space Telescope has made a groundbreaking discovery of a giant planet exhibiting Earth-like temperatures, raising questions about the potential for life beyond our planet. This finding could reshape our understanding of habitable zones in the universe.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260521072355.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 22, 2026': MAY_22_2026_CATEGORIES,
   'May 21, 2026': MAY_21_2026_CATEGORIES,
   'May 20, 2026': MAY_20_2026_CATEGORIES,
   'May 19, 2026': MAY_19_2026_CATEGORIES,
