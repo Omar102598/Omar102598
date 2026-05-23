@@ -1762,8 +1762,107 @@ const MAY_22_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_23_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 23, 2026",
+            "title": "AI is being used to resurrect the voices of dead pilots",
+            "summary": "A groundbreaking application of AI technology is enabling the recreation of voices from deceased pilots, raising both ethical and technological questions. This innovation could have significant implications for aviation safety and historical documentation.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 23, 2026",
+            "title": "US scrambles to stop Internet users re-creating dead pilots’ voices",
+            "summary": "In response to the rising trend of using AI to recreate the voices of deceased pilots, U.S. authorities are taking steps to regulate this technology. The move highlights the challenges of balancing innovation with ethical considerations in AI applications.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/ai/2026/05/ai-users-re-create-dead-pilots-voices-from-crash-investigation-docs/",
+            "source": "arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 23, 2026",
+            "title": "Kash Patel's clothing brand website shut down after reports it was hacked",
+            "summary": "The website of Kash Patel's clothing brand has been taken offline following a reported hacking incident. This breach raises concerns about cybersecurity measures in e-commerce and the potential risks for consumers.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/05/22/kash-patels-clothing-brand-website-shut-down-after-reports-it-was-hacked/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cybersecurity-2",
+            "date": "May 23, 2026",
+            "title": "Police boast of hacking VPN where criminals 'believed themselves to be safe'",
+            "summary": "Law enforcement agencies have announced the successful hacking of a VPN service used by criminals, showcasing the ongoing battle between cybersecurity and law enforcement. This incident raises questions about privacy and the effectiveness of VPNs.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/tech-policy/2026/05/police-boast-of-hacking-vpn-where-criminals-believed-themselves-to-be-safe/",
+            "source": "arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 23, 2026",
+            "title": "Scientists discover simple way to relieve arthritis pain without pills or surgery",
+            "summary": "Researchers have unveiled a novel approach to alleviating arthritis pain that does not involve medication or surgical procedures. This breakthrough could significantly improve the quality of life for millions suffering from this chronic condition.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260522031135.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "biology-2",
+            "date": "May 23, 2026",
+            "title": "Scientists uncover cancer-causing chemicals hidden in everyday foods",
+            "summary": "A new study has identified harmful chemicals in common foods that may contribute to cancer risk. This discovery emphasizes the importance of food safety and could lead to changes in dietary recommendations.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260522030853.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 23, 2026': MAY_23_2026_CATEGORIES,
   'May 22, 2026': MAY_22_2026_CATEGORIES,
   'May 21, 2026': MAY_21_2026_CATEGORIES,
   'May 20, 2026': MAY_20_2026_CATEGORIES,
