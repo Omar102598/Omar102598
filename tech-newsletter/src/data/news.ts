@@ -1860,8 +1860,107 @@ const MAY_23_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_24_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 24, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows users to analyze the outputs of large language models (LLMs) effectively. This behavioral health monitor aims to enhance the understanding of LLM behavior and improve their reliability in various applications.",
+            "url": "https://splabs.io",
+            "source": "splabs.io",
+            "tag": "Research"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 24, 2026",
+            "title": "Google’s new anything-to-anything AI model is wild",
+            "summary": "Google has unveiled a groundbreaking AI model capable of transforming any input into any desired output, showcasing unprecedented versatility. This innovation could redefine content creation and interaction across various platforms.",
+            "url": "https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video",
+            "source": "theverge.com",
+            "tag": "Model Release"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 24, 2026",
+            "title": "These special phone and app features can help protect you from spyware",
+            "summary": "As spyware threats become more sophisticated, new phone and app features are emerging to help users safeguard their privacy. This article explores the latest tools and practices to enhance personal cybersecurity.",
+            "url": "https://techcrunch.com/2026/05/23/you-dont-have-to-click-anything-to-get-hacked-anymore-heres-how-to-fight-back/",
+            "source": "techcrunch.com",
+            "tag": "Policy"
+          },
+          {
+            "id": "cybersecurity-2",
+            "date": "May 24, 2026",
+            "title": "US scrambles to stop Internet users re-creating dead pilots’ voices",
+            "summary": "In a controversial move, U.S. authorities are attempting to regulate the use of AI technologies that allow users to recreate the voices of deceased pilots. This raises ethical questions about consent and the implications of AI in sensitive contexts.",
+            "url": "https://arstechnica.com/ai/2026/05/ai-users-re-create-dead-pilots-voices-from-crash-investigation-docs",
+            "source": "arstechnica.com",
+            "tag": "Policy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 24, 2026",
+            "title": "Scientists discover hidden driver of aging — Simple supplement reversed brain decline",
+            "summary": "Researchers have identified a simple supplement that may reverse brain decline, offering new hope in the fight against aging. This discovery could lead to significant advancements in age-related health interventions.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260524012959.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          },
+          {
+            "id": "biology-2",
+            "date": "May 24, 2026",
+            "title": "Scientists warn popular vitamin D supplement may have a “previously unknown” downside",
+            "summary": "A new study raises concerns about the widespread use of vitamin D supplements, suggesting they may carry previously unrecognized risks. This finding could prompt a reevaluation of dietary recommendations.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260523021820.htm",
+            "source": "sciencedaily.com",
+            "tag": "Research"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 24, 2026': MAY_24_2026_CATEGORIES,
   'May 23, 2026': MAY_23_2026_CATEGORIES,
   'May 22, 2026': MAY_22_2026_CATEGORIES,
   'May 21, 2026': MAY_21_2026_CATEGORIES,
