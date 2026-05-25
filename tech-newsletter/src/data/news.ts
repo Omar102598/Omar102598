@@ -1958,8 +1958,123 @@ const MAY_24_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_25_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "gen-ai-1",
+            "date": "May 25, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows users to analyze the output of large language models (LLMs) through a behavioral health monitor. This innovative approach aims to enhance the understanding of LLM behavior and improve their applications in various fields.",
+            "url": "https://splabs.io",
+            "source": "splabs.io",
+            "tag": "Research"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 25, 2026",
+            "title": "Everyone is navigating AI security in real time — even Google",
+            "summary": "As AI technologies proliferate, companies like Google are grappling with real-time security challenges posed by AI systems. This article explores the evolving landscape of AI security and the measures being taken to safeguard against potential threats.",
+            "url": "https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/",
+            "source": "techcrunch.com",
+            "tag": "Policy"
+          },
+          {
+            "id": "cyber-2",
+            "date": "May 25, 2026",
+            "title": "These special phone and app features can help protect you from spyware",
+            "summary": "With the rise of spyware threats, new phone and app features are being developed to enhance user security. This article highlights practical tools and strategies that can help individuals protect their devices from unwanted surveillance.",
+            "url": "https://techcrunch.com/2026/05/23/you-dont-have-to-click-anything-to-get-hacked-anymore-heres-how-to-fight-back/",
+            "source": "techcrunch.com",
+            "tag": "Breach"
+          },
+          {
+            "id": "cyber-3",
+            "date": "May 25, 2026",
+            "title": "Hackers are learning to exploit chatbot ‘personalities’",
+            "summary": "As chatbots become more sophisticated, hackers are finding ways to exploit their personalities for malicious purposes. This article delves into the implications of this trend and what it means for the future of AI interactions.",
+            "url": "https://www.theverge.com/column/935545/hackers-ai-chatbots",
+            "source": "theverge.com",
+            "tag": "Breach"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "bio-1",
+            "date": "May 25, 2026",
+            "title": "Scientists discover hidden driver of aging — Simple supplement reversed brain decline",
+            "summary": "Researchers have identified a previously unknown factor in the aging process that can be influenced by a simple supplement, showing promise in reversing cognitive decline. This discovery could pave the way for new treatments aimed at enhancing brain health in older adults.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260524012959.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          },
+          {
+            "id": "bio-2",
+            "date": "May 25, 2026",
+            "title": "Scientists say house cats could help unlock new cancer treatments for humans",
+            "summary": "A fascinating study suggests that the biology of house cats may hold clues to developing new cancer therapies for humans. This research highlights the potential of cross-species insights in advancing medical science.",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260523103943.htm",
+            "source": "sciencedaily.com",
+            "tag": "Discovery"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 25, 2026",
+            "title": "SpaceX's Starship V3—still a work in progress—mostly successful on first flight",
+            "summary": "SpaceX's latest iteration of the Starship, V3, has completed its first flight, showcasing significant advancements despite being a work in progress. This milestone marks another step forward in SpaceX's ambitious plans for space exploration.",
+            "url": "https://arstechnica.com/space/2026/05/spacexs-starship-v3-still-a-work-in-progress-mostly-successful-on-first-flight/",
+            "source": "feeds.arstechnica.com",
+            "tag": "Milestone"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 25, 2026': MAY_25_2026_CATEGORIES,
   'May 24, 2026': MAY_24_2026_CATEGORIES,
   'May 23, 2026': MAY_23_2026_CATEGORIES,
   'May 22, 2026': MAY_22_2026_CATEGORIES,
