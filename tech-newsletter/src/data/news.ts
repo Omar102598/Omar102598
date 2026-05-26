@@ -2072,8 +2072,130 @@ const MAY_25_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_26_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "May 26, 2026",
+            "title": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
+            "summary": "A new tool has emerged that allows users to analyze the output of large language models (LLMs) through a behavioral health monitor. This innovative approach aims to enhance the understanding of LLM behavior and improve their applications in various fields.",
+            "tag": "Research",
+            "url": "https://splabs.io",
+            "source": "splabs.io"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "May 26, 2026",
+            "title": "AI won’t replace you but someone using AI might",
+            "summary": "A recent article discusses the implications of AI in the workforce, emphasizing that while AI may not directly replace jobs, those who leverage AI tools will have a competitive edge. This highlights the importance of adapting to technological advancements in the job market.",
+            "tag": "Market",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260525000448.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "May 26, 2026",
+            "title": "Cox Media fined after bragging it spied on users through their phones",
+            "summary": "Cox Media has faced legal repercussions after boasting about its ability to spy on users via their phones, leading to a significant fine. This incident raises critical questions about user privacy and the ethical boundaries of data collection in the media industry.",
+            "tag": "Breach",
+            "url": "https://www.theverge.com/policy/937027/cox-media-marketing-ai-powered-phone-spying-ads-ftc-fine",
+            "source": "theverge.com"
+          }
+        ]
+      },
+      {
+        "id": "startup",
+        "name": "Startup",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "startup-1",
+            "date": "May 26, 2026",
+            "title": "The pitch trick that helped an eSports startup raise $20M when VCs only wanted AI",
+            "summary": "An eSports startup successfully raised $20 million by employing a unique pitching strategy that captured the interest of venture capitalists focused on AI. This case study illustrates the evolving landscape of startup funding and the importance of adaptability in securing investment.",
+            "tag": "Funding",
+            "url": "https://techcrunch.com/2026/05/25/the-pitch-trick-that-helped-an-esports-startup-raise-20m-when-vcs-only-wanted-ai/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "startup-2",
+            "date": "May 26, 2026",
+            "title": "Startup Battlefield 200 applications close in days: Apply before May 27",
+            "summary": "Aspiring entrepreneurs have just days left to apply for the Startup Battlefield 200, a prestigious competition that showcases innovative startups. This event offers a unique platform for startups to gain visibility and connect with potential investors.",
+            "tag": "Event",
+            "url": "https://techcrunch.com/2026/05/25/startup-battlefield-200-applications-close-in-days-apply-before-may-27/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 26, 2026",
+            "title": "NASA’s Psyche spacecraft uses Mars as a giant slingshot toward a mysterious metal world",
+            "summary": "NASA's Psyche spacecraft is utilizing a gravity assist from Mars to propel itself toward a unique metal-rich asteroid. This innovative maneuver highlights the agency's ongoing efforts to explore the solar system and unlock the secrets of planetary formation.",
+            "tag": "Mission",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260525040421.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 26, 2026",
+            "title": "USC scientists discover a hidden Alzheimer’s trigger and a possible way to shut it down",
+            "summary": "Researchers at USC have identified a previously unknown trigger for Alzheimer's disease, along with a potential method to inhibit its effects. This groundbreaking discovery could pave the way for new therapeutic strategies in combating this devastating condition.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260525000504.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 26, 2026': MAY_26_2026_CATEGORIES,
   'May 25, 2026': MAY_25_2026_CATEGORIES,
   'May 24, 2026': MAY_24_2026_CATEGORIES,
   'May 23, 2026': MAY_23_2026_CATEGORIES,
