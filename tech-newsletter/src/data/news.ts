@@ -2193,8 +2193,148 @@ const MAY_26_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_28_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": []
+      },
+      {
+        "id": "ai-vision",
+        "name": "Visual Processing AI",
+        "icon": "👁️",
+        "articles": []
+      },
+      {
+        "id": "ai-nlp",
+        "name": "NLP",
+        "icon": "💬",
+        "articles": []
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 28, 2026",
+            "title": "Google engineer charged with insider trading after making $1.2M on Polymarket",
+            "summary": "A Google engineer has been charged with insider trading after allegedly using confidential information to profit $1.2 million on the Polymarket prediction market. This case raises significant concerns about ethical practices within tech companies and the potential misuse of insider knowledge.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/05/27/google-engineer-charged-with-insider-trading-after-making-1-2m-on-polymarket/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "May 28, 2026",
+            "title": "UK Visa Portal exposed thousands of applicants’ passports and selfies — then called the lawyers on us",
+            "summary": "A significant data breach occurred at the UK Visa Portal, exposing thousands of applicants' personal information, including passports and selfies. The incident has raised alarms about data security practices and the handling of sensitive information by government services.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/05/27/uk-visa-portal-spilled-thousands-of-applicants-passports-and-selfies-online-and-hasnt-fixed-the-leak/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "May 28, 2026",
+            "title": "In more good news for Amazon, Snowflake signs $6B deal with AWS for AI CPU chips",
+            "summary": "Snowflake has signed a massive $6 billion deal with Amazon Web Services to supply AI CPU chips, marking a significant step in the cloud computing landscape. This partnership is expected to enhance AI capabilities and drive innovation across various sectors.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/05/27/in-more-good-news-for-amazon-snowflake-signs-6b-deal-with-aws-for-ai-cpu-chips/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "May 28, 2026",
+            "title": "Scientists break 30-year superconductivity record at normal pressure",
+            "summary": "Researchers have achieved a groundbreaking milestone by breaking a 30-year record in superconductivity at normal pressure. This discovery could pave the way for advancements in energy transmission and quantum computing technologies.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260527023220.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "May 28, 2026",
+            "title": "Researchers block key protein that helps Parkinson’s spread through the brain",
+            "summary": "A team of researchers has identified and successfully blocked a key protein that facilitates the spread of Parkinson's disease in the brain. This breakthrough could lead to new therapeutic strategies for managing this debilitating condition.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260527023214.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 28, 2026",
+            "title": "NASA’s Webb telescope discovers a planet where rock clouds vanish every night",
+            "summary": "NASA's Webb telescope has made a fascinating discovery of a planet where rock clouds disappear nightly, challenging our understanding of atmospheric phenomena on exoplanets. This finding opens new avenues for research in planetary science.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260527023212.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "space-2",
+            "date": "May 28, 2026",
+            "title": "NASA’s Fermi telescope reveals the power source behind monster supernovae",
+            "summary": "The Fermi telescope has unveiled the mystery behind the power sources of massive supernovae, providing insights into the life cycles of stars and the dynamics of the universe. This research enhances our understanding of cosmic events.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260527023210.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 28, 2026': MAY_28_2026_CATEGORIES,
   'May 26, 2026': MAY_26_2026_CATEGORIES,
   'May 25, 2026': MAY_25_2026_CATEGORIES,
   'May 24, 2026': MAY_24_2026_CATEGORIES,
