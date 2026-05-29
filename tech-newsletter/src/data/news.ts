@@ -2332,8 +2332,107 @@ const MAY_28_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_29_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "May 29, 2026",
+            "title": "Claude’s new model is more ‘honest’ when it messes up",
+            "summary": "Anthropic's latest model, Claude 4.8, introduces a new approach to handling errors, aiming for greater transparency and honesty in its responses. This update is expected to enhance user trust and improve interactions with AI systems.",
+            "tag": "Model Release",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/939094/anthropic-claude-4-8-opus-honesty-effort"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 29, 2026",
+            "title": "Fed up with vibe coders, dev sneaks data-nuking prompt injection into their code",
+            "summary": "In a bold move against ineffective coding practices, a developer has embedded a prompt injection that could wipe data into their code. This incident raises significant concerns about security and the integrity of software development.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/05/fed-up-with-vibe-coders-dev-sneaks-data-nuking-prompt-injection-into-their-code/"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "May 29, 2026",
+            "title": "Microsoft 365 Copilot gets a speed boost and cleaner design",
+            "summary": "Microsoft has rolled out significant updates to its 365 Copilot, enhancing performance and streamlining the user interface. These improvements aim to make productivity tools more efficient and user-friendly.",
+            "tag": "Update",
+            "url": "https://www.theverge.com/tech/939273/microsoft-365-copilot-redesign"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "bio-1",
+            "date": "May 29, 2026",
+            "title": "Human organoids reveal how to reverse “irreversible” nerve damage",
+            "summary": "Recent research using human organoids has uncovered potential methods to reverse nerve damage previously deemed irreversible. This breakthrough could pave the way for new treatments in neuroregeneration.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260528082459.htm"
+          }
+        ]
+      },
+      {
+        "id": "climate",
+        "name": "Climate & Environment",
+        "icon": "🌍",
+        "articles": [
+          {
+            "id": "climate-1",
+            "date": "May 29, 2026",
+            "title": "Arctic Ocean passed a tipping point and scientists say it may never recover",
+            "summary": "Scientists have announced that the Arctic Ocean has crossed a critical tipping point, leading to irreversible changes in its ecosystem. This alarming finding highlights the urgent need for climate action.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260528082457.htm"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 29, 2026': MAY_29_2026_CATEGORIES,
   'May 28, 2026': MAY_28_2026_CATEGORIES,
   'May 26, 2026': MAY_26_2026_CATEGORIES,
   'May 25, 2026': MAY_25_2026_CATEGORIES,
