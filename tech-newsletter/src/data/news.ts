@@ -2430,8 +2430,98 @@ const MAY_29_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_30_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "May 30, 2026",
+            "title": "Coders are refusing to work without AI — and that could come back to bite them",
+            "summary": "A growing trend among software developers is the refusal to work without AI assistance, raising concerns about dependency on these tools. Experts warn that this reliance could lead to significant challenges in the industry, particularly in terms of skill development and job security.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/05/29/coders-are-refusing-to-work-without-ai-and-that-could-come-back-to-bite-them/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-gen-2",
+            "date": "May 30, 2026",
+            "title": "What happens when companies become too AI-pilled?",
+            "summary": "A new discussion emerges around the potential pitfalls of companies becoming overly reliant on AI technologies. This article explores the implications of such dependency, including the risk of losing human insight and creativity in decision-making processes.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/video/what-happens-when-companies-become-too-ai-pilled/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 30, 2026",
+            "title": "Microsoft under fire for threatening security researcher with criminal investigation",
+            "summary": "Microsoft faces backlash after reportedly threatening a security researcher with criminal charges for exposing vulnerabilities in its software. This incident raises critical questions about the relationship between tech companies and the security community.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/05/29/microsoft-under-fire-for-threatening-security-researcher-with-criminal-investigation/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "May 30, 2026",
+            "title": "Botnet of more than 17 million devices dismantled",
+            "summary": "A significant cybersecurity operation has successfully dismantled a massive botnet comprising over 17 million devices. This operation highlights ongoing efforts to combat cybercrime and protect internet users from malicious activities.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/05/botnet-of-more-than-17-million-devices-dismantled/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "May 30, 2026",
+            "title": "Astronomers finally solve Saturn’s decades-long spin mystery",
+            "summary": "After years of research, astronomers have unraveled the mystery behind Saturn's unusual spin. This breakthrough not only enhances our understanding of the planet but also sheds light on the dynamics of planetary formation and evolution.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260529043658.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 30, 2026': MAY_30_2026_CATEGORIES,
   'May 29, 2026': MAY_29_2026_CATEGORIES,
   'May 28, 2026': MAY_28_2026_CATEGORIES,
   'May 26, 2026': MAY_26_2026_CATEGORIES,
