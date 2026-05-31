@@ -2519,8 +2519,114 @@ const MAY_30_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const MAY_31_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "May 31, 2026",
+            "title": "Meta is reportedly developing an AI pendant",
+            "summary": "Meta is reportedly working on a new AI pendant that aims to integrate seamlessly into daily life, providing users with personalized assistance and connectivity. This move highlights the growing trend of wearable AI technology.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/05/30/meta-is-reportedly-developing-an-ai-pendant/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-gen-2",
+            "date": "May 31, 2026",
+            "title": "I put Google's 24/7 AI assistant Gemini Spark to work, and it's actually pretty useful",
+            "summary": "A hands-on review of Google's Gemini Spark reveals its potential as a 24/7 AI assistant, showcasing its capabilities in managing tasks and providing information efficiently. Users are finding it to be a valuable addition to their daily routines.",
+            "tag": "Research",
+            "url": "https://techcrunch.com/2026/05/30/i-put-googles-24-7-ai-assistant-gemini-spark-to-work-and-its-actually-pretty-useful/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "May 31, 2026",
+            "title": "Microsoft is threatening legal action for disclosing exploits",
+            "summary": "Microsoft has issued a warning regarding the disclosure of exploits, threatening legal action against those who reveal vulnerabilities without proper channels. This move underscores the ongoing tension between security researchers and tech giants.",
+            "tag": "Policy",
+            "url": "https://www.theverge.com/tech/940416/microsoft-nightmare-eclipse-zero-day-vulnerability",
+            "source": "theverge.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "May 31, 2026",
+            "title": "Botnet of more than 17 million devices dismantled",
+            "summary": "A significant cybersecurity operation has successfully dismantled a botnet comprising over 17 million devices, highlighting the ongoing battle against cybercrime. This operation is a major win for security agencies worldwide.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/05/botnet-of-more-than-17-million-devices-dismantled/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "May 31, 2026",
+            "title": "SoftBank says it will invest up to €75 billion to build French data centers",
+            "summary": "SoftBank has announced plans to invest up to €75 billion in building data centers across France, aiming to enhance cloud infrastructure and services in Europe. This investment is expected to significantly boost the region's tech landscape.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/05/30/softbank-says-it-will-invest-up-to-e75-billion-to-build-french-data-centers/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "May 31, 2026",
+            "title": "New 3D silicon chip breakthrough could extend Moore’s Law for years",
+            "summary": "Researchers have made a groundbreaking advancement in 3D silicon chip technology, potentially extending Moore's Law for several more years. This innovation could lead to significant improvements in computing power and efficiency.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260530053412.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'May 31, 2026': MAY_31_2026_CATEGORIES,
   'May 30, 2026': MAY_30_2026_CATEGORIES,
   'May 29, 2026': MAY_29_2026_CATEGORIES,
   'May 28, 2026': MAY_28_2026_CATEGORIES,
