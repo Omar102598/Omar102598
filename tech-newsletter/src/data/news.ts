@@ -2624,8 +2624,123 @@ const MAY_31_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_1_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "June 1, 2026",
+            "summary": "OpenAI has made headlines by solving a famous math problem that had stumped humans for 80 years, showcasing the model's capabilities in tackling complex mathematical challenges. This breakthrough not only highlights the potential of AI in academic fields but also raises questions about the future of human problem-solving.",
+            "tag": "Discovery",
+            "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "June 1, 2026",
+            "summary": "A massive botnet comprising over 17 million devices has been dismantled, marking a significant victory in the ongoing battle against cybercrime. This operation not only disrupts malicious activities but also serves as a reminder of the vulnerabilities present in our increasingly connected world.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/05/botnet-of-more-than-17-million-devices-dismantled/",
+            "source": "feeds.arstechnica.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "June 1, 2026",
+            "summary": "Erin Brockovich has taken a stand against the secrecy surrounding data centers, advocating for transparency in their operations. Her efforts highlight the growing concerns over data privacy and environmental impacts associated with these facilities.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/05/31/erin-brockovich-takes-aim-at-data-center-secrecy/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "hardware",
+        "name": "Hardware",
+        "icon": "🖥️",
+        "articles": [
+          {
+            "id": "hardware-1",
+            "date": "June 1, 2026",
+            "summary": "Nvidia has unveiled its RTX Spark, touted as 'the most efficient PC chip ever built.' This new chip promises to revolutionize computing performance, particularly in AI and gaming applications, setting a new standard for future hardware developments.",
+            "tag": "Model Release",
+            "url": "https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date",
+            "source": "theverge.com"
+          },
+          {
+            "id": "hardware-2",
+            "date": "June 1, 2026",
+            "summary": "The first Nvidia RTX Spark laptops have been announced, showcasing the chip's capabilities in portable computing. These laptops are expected to deliver exceptional performance for gamers and professionals alike, marking a significant advancement in mobile technology.",
+            "tag": "Model Release",
+            "url": "https://www.theverge.com/gadgets/940794/first-nvidia-rtx-spark-laptops-roundup-computex-2026",
+            "source": "theverge.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 1, 2026",
+            "summary": "Researchers have discovered a hidden switch that fuels brain inflammation in Alzheimer's patients, opening new avenues for treatment. This finding could lead to innovative therapies aimed at mitigating the effects of this devastating disease.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260530053424.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "materials",
+        "name": "Materials Science",
+        "icon": "🧪",
+        "articles": [
+          {
+            "id": "materials-1",
+            "date": "June 1, 2026",
+            "summary": "A breakthrough in solar desalination technology has emerged, allowing for the production of fresh water without generating toxic brine. This innovation could significantly impact water scarcity issues in arid regions, providing a sustainable solution for clean water.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/05/260530053418.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 1, 2026': JUNE_1_2026_CATEGORIES,
   'May 31, 2026': MAY_31_2026_CATEGORIES,
   'May 30, 2026': MAY_30_2026_CATEGORIES,
   'May 29, 2026': MAY_29_2026_CATEGORIES,
