@@ -2738,8 +2738,134 @@ const JUNE_1_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_2_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "June 2, 2026",
+            "title": "Florida sues OpenAI, Sam Altman, in first-of-its-kind lawsuit over violent incidents",
+            "summary": "In a groundbreaking legal move, Florida has filed a lawsuit against OpenAI and its CEO Sam Altman, linking the use of ChatGPT to multiple violent incidents. This case raises significant questions about the accountability of AI developers in relation to the actions of their technologies.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "June 2, 2026",
+            "title": "Florida sues OpenAI, Sam Altman after multiple ChatGPT-linked murders",
+            "summary": "Following a series of tragic events, Florida's legal action against OpenAI and Sam Altman highlights the urgent need for regulatory frameworks governing AI technologies. The lawsuit could set a precedent for how AI companies are held responsible for their products.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders/",
+            "source": "arstechnica.com"
+          },
+          {
+            "id": "ai-generative-3",
+            "date": "June 2, 2026",
+            "title": "Hackers hijacked Instagram accounts by tricking Meta AI support chatbot into granting access",
+            "summary": "A new security breach has emerged as hackers successfully manipulated Meta's AI support chatbot to gain unauthorized access to Instagram accounts. This incident underscores the vulnerabilities in AI systems and the potential for exploitation in social media platforms.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/06/01/hackers-hijacked-instagram-accounts-by-tricking-meta-ai-support-chatbot-into-granting-access/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-4",
+            "date": "June 2, 2026",
+            "title": "Meta's own AI was exploited to hijack Instagram accounts",
+            "summary": "In a concerning development, Meta's AI technology was exploited by hackers to hijack several high-profile Instagram accounts. This incident raises alarms about the security measures in place for AI-driven support systems and their susceptibility to manipulation.",
+            "tag": "Breach",
+            "url": "https://www.theverge.com/tech/941179/meta-instagram-ai-support-chatbot-exploit-hacked",
+            "source": "theverge.com"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "June 2, 2026",
+            "title": "Alphabet plans to raise $80B to pay for AI buildout",
+            "summary": "Alphabet has announced plans to raise $80 billion to fund its ambitious AI buildout, signaling a major investment in the future of artificial intelligence. This move reflects the growing importance of AI in cloud computing and the tech industry's shift towards AI-driven solutions.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/06/01/alphabet-plans-to-raise-80-billion-to-pay-for-ai-buildout/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cloud-2",
+            "date": "June 2, 2026",
+            "title": "Nvidia chases $200B CPU market with AI agent PCs from Microsoft, Dell, and HP",
+            "summary": "Nvidia is making a bold move into the $200 billion CPU market by partnering with major manufacturers like Microsoft, Dell, and HP to produce AI agent PCs. This strategy aims to leverage AI capabilities to enhance computing performance and user experience.",
+            "tag": "Market",
+            "url": "https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 2, 2026",
+            "title": "NASA’s X-59 is about to break the sound barrier for the first time",
+            "summary": "NASA's X-59 aircraft is set to make history by breaking the sound barrier, a significant milestone in aerospace technology. This achievement could pave the way for quieter supersonic flights, revolutionizing air travel.",
+            "tag": "Milestone",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260601025338.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "space-2",
+            "date": "June 2, 2026",
+            "title": "NASA’s Roman telescope could reveal 100,000 hidden worlds",
+            "summary": "The upcoming launch of NASA's Roman telescope promises to uncover up to 100,000 hidden worlds, expanding our understanding of the universe. This powerful tool will enhance our ability to detect exoplanets and study cosmic phenomena.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260601025334.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "space-3",
+            "date": "June 2, 2026",
+            "title": "Hubble captures M88 on a perilous journey that could change it forever",
+            "summary": "The Hubble Space Telescope has captured stunning images of galaxy M88, which is on a collision course that could alter its structure. This observation provides valuable insights into galactic evolution and the dynamics of cosmic interactions.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260601025329.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 2, 2026': JUNE_2_2026_CATEGORIES,
   'June 1, 2026': JUNE_1_2026_CATEGORIES,
   'May 31, 2026': MAY_31_2026_CATEGORIES,
   'May 30, 2026': MAY_30_2026_CATEGORIES,
