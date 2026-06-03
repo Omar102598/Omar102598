@@ -2863,8 +2863,141 @@ const JUNE_2_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_3_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": []
+      },
+      {
+        "id": "ai-vision",
+        "name": "Visual Processing AI",
+        "icon": "👁️",
+        "articles": []
+      },
+      {
+        "id": "ai-nlp",
+        "name": "NLP",
+        "icon": "💬",
+        "articles": []
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": []
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "June 3, 2026",
+            "title": "AI has a water problem. Google thinks it has a fix",
+            "summary": "Google is addressing the significant water consumption associated with AI data centers by implementing innovative solutions aimed at reducing their environmental impact. This initiative highlights the tech giant's commitment to sustainability in the face of growing concerns over resource usage.",
+            "tag": "Policy",
+            "url": "https://www.theverge.com/policy/942296/google-water-commitments-data-centers",
+            "source": "theverge.com"
+          },
+          {
+            "id": "cloud-2",
+            "date": "June 3, 2026",
+            "title": "Google must let publishers opt out of AI Search features, rules UK",
+            "summary": "In a landmark ruling, the UK has mandated that Google must allow publishers to opt out of AI-generated search features, a decision that could reshape the relationship between tech companies and content creators. This move aims to protect publishers' rights and ensure fair compensation for their work.",
+            "tag": "Policy",
+            "url": "https://www.theverge.com/tech/942302/google-search-ai-overviews-uk-cma-publisher-opt-out",
+            "source": "theverge.com"
+          }
+        ]
+      },
+      {
+        "id": "webdev",
+        "name": "Web Development",
+        "icon": "🌐",
+        "articles": []
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": []
+      },
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 3, 2026",
+            "title": "Scientists discover gut bacteria that may help protect against autism and ADHD",
+            "summary": "A groundbreaking study has identified specific gut bacteria that could play a protective role against autism and ADHD, opening new avenues for research into microbiome health. This discovery underscores the intricate connection between gut health and neurological development.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260602021645.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 3, 2026",
+            "title": "A stellar “Rosetta stone” reveals the source of mysterious cosmic signals",
+            "summary": "Astronomers have uncovered a 'Rosetta stone' that could decode the origins of enigmatic cosmic signals, potentially reshaping our understanding of the universe. This discovery promises to unlock secrets about cosmic phenomena that have puzzled scientists for decades.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260602021631.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "climate",
+        "name": "Climate & Environment",
+        "icon": "🌍",
+        "articles": [
+          {
+            "id": "climate-1",
+            "date": "June 3, 2026",
+            "title": "A hidden pollutant is changing how the world's forests breathe",
+            "summary": "Recent research has revealed that an overlooked pollutant is significantly altering the respiratory processes of forests, which could have far-reaching implications for global carbon cycles. This finding emphasizes the urgent need for environmental monitoring and policy adjustments.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260602021659.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 3, 2026': JUNE_3_2026_CATEGORIES,
   'June 2, 2026': JUNE_2_2026_CATEGORIES,
   'June 1, 2026': JUNE_1_2026_CATEGORIES,
   'May 31, 2026': MAY_31_2026_CATEGORIES,
