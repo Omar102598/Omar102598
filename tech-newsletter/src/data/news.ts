@@ -2995,8 +2995,77 @@ const JUNE_3_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_4_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "June 4, 2026",
+            "title": "Google's new Gemma 4 12B model is designed to run on any laptop with 16GB of RAM",
+            "summary": "Google has unveiled its latest AI model, Gemma 4, which boasts a compact size that allows it to operate on laptops with just 16GB of RAM. This development marks a significant step towards making powerful AI tools more accessible to everyday users.",
+            "tag": "Model Release",
+            "url": "https://arstechnica.com/google/2026/06/googles-new-gemma-4-open-ai-model-is-sized-for-your-laptop/"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "June 4, 2026",
+            "title": "Lovable signs multiyear deal with Google Cloud to up usage 5x, source says",
+            "summary": "Lovable has entered into a multiyear partnership with Google Cloud, aiming to increase its cloud service usage fivefold. This strategic move highlights the growing trend of companies leveraging cloud infrastructure to enhance their operational capabilities.",
+            "tag": "Enterprise",
+            "url": "https://techcrunch.com/2026/06/03/lovable-signs-multi-year-deal-with-google-cloud-to-up-usage-5x-source-says/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantum",
+    "name": "Quantum Computing",
+    "icon": "⚡",
+    "color": "#a855f7",
+    "gradient": "linear-gradient(135deg, #a855f7, #ec4899)",
+    "description": "The frontier of computation — algorithms, hardware, cryptography, and networking.",
+    "subCategories": [
+      {
+        "id": "quantum-hardware",
+        "name": "Quantum Hardware",
+        "icon": "🖥️",
+        "articles": [
+          {
+            "id": "quantum-hardware-1",
+            "date": "June 4, 2026",
+            "title": "Microsoft, Atom Computing, EeroQ update their quantum computing progress",
+            "summary": "Major players in the quantum computing space, including Microsoft and Atom Computing, have shared updates on their latest advancements. This collaborative effort underscores the rapid evolution of quantum technologies and their potential applications across various industries.",
+            "tag": "Research",
+            "url": "https://arstechnica.com/science/2026/06/microsoft-atom-computing-eeroq-update-their-quantum-computing-progress/"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 4, 2026': JUNE_4_2026_CATEGORIES,
   'June 3, 2026': JUNE_3_2026_CATEGORIES,
   'June 2, 2026': JUNE_2_2026_CATEGORIES,
   'June 1, 2026': JUNE_1_2026_CATEGORIES,
