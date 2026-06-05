@@ -3063,8 +3063,114 @@ const JUNE_4_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_5_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "June 5, 2026",
+            "title": "Ahead of its IPO, Anthropic's Daniela Amodei shrugs off doubts about AI's returns",
+            "summary": "As Anthropic prepares for its IPO, co-founder Daniela Amodei addresses skepticism surrounding the profitability of AI investments. She emphasizes the long-term vision and potential of AI technologies to reshape industries and drive substantial returns.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/06/04/ahead-of-its-ipo-anthropics-daniela-amodei-shrugs-off-doubts-about-ais-returns",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-gen-2",
+            "date": "June 5, 2026",
+            "title": "Airbnb's Brian Chesky plans to launch a new AI lab",
+            "summary": "Brian Chesky, CEO of Airbnb, announces plans to establish a new AI lab aimed at enhancing customer experiences and operational efficiency. This initiative reflects the growing trend of tech companies investing in AI to innovate and stay competitive.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "June 5, 2026",
+            "title": "Dashlane explains how attackers managed to download encrypted password vaults",
+            "summary": "Dashlane reveals the details behind a recent security breach where attackers successfully downloaded encrypted password vaults. The company emphasizes the importance of robust security measures and user awareness to prevent such incidents.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/06/dashlane-explains-how-attackers-managed-to-download-encrypted-password-vaults",
+            "source": "feeds.arstechnica.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "June 5, 2026",
+            "title": "AT&T and Verizon lose Supreme Court case over fines for selling location data",
+            "summary": "In a landmark ruling, the Supreme Court sides against AT&T and Verizon regarding fines imposed for selling customer location data without consent. This decision highlights the ongoing scrutiny of telecom practices and the need for stricter privacy regulations.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/tech-policy/2026/06/att-and-verizon-lose-supreme-court-case-over-fines-for-selling-location-data",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "bio-1",
+            "date": "June 5, 2026",
+            "title": "Scientists finally crack an “undruggable” pancreatic cancer target and nearly double survival",
+            "summary": "Researchers have made a groundbreaking discovery by identifying a previously deemed 'undruggable' target in pancreatic cancer, leading to treatments that nearly double patient survival rates. This advancement could revolutionize cancer therapy and improve outcomes for many.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260604044247.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 5, 2026",
+            "title": "Scientists discover vast hidden structure beneath Antarctica’s ice",
+            "summary": "A team of scientists has uncovered a massive hidden structure beneath Antarctica's ice, which could provide insights into the continent's geological history and its response to climate change. This discovery opens new avenues for research in glaciology and earth sciences.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260604044244.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 5, 2026': JUNE_5_2026_CATEGORIES,
   'June 4, 2026': JUNE_4_2026_CATEGORIES,
   'June 3, 2026': JUNE_3_2026_CATEGORIES,
   'June 2, 2026': JUNE_2_2026_CATEGORIES,
