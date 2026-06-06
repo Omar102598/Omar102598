@@ -3168,8 +3168,130 @@ const JUNE_5_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_6_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "June 6, 2026",
+            "title": "AI-designed universal coronavirus vaccine passes first human trial",
+            "summary": "A groundbreaking AI-designed universal coronavirus vaccine has successfully passed its first human trial, marking a significant step forward in pandemic preparedness. This innovative approach could revolutionize vaccine development and response to future viral outbreaks.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260605023357.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "June 6, 2026",
+            "title": "Former cyber executive turned whistleblower accuses IBM of covering up several data breaches",
+            "summary": "A former cybersecurity executive has come forward as a whistleblower, alleging that IBM concealed multiple data breaches. This revelation raises serious questions about corporate transparency and the integrity of data protection practices in large tech firms.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/06/05/former-cyber-executive-turned-whistleblower-accuses-ibm-of-covering-up-several-data-breaches/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cybersecurity-2",
+            "date": "June 6, 2026",
+            "title": "How a USB-connected speaker can infect a PC without ever being touched",
+            "summary": "A new report reveals how a seemingly innocuous USB-connected speaker can be exploited to infect connected PCs without any physical interaction. This alarming vulnerability highlights the need for enhanced security measures in peripheral devices.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/06/highly-reviewed-speaker-can-be-hacked-over-the-air-to-infect-connected-devices/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "startup",
+        "name": "Startup",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "startup-1",
+            "date": "June 6, 2026",
+            "title": "Reid Hoffman is leaving Microsoft's board to go 'founder mode' with startup Manus",
+            "summary": "Reid Hoffman, co-founder of LinkedIn, is stepping down from Microsoft's board to focus on his new startup, Manus. This move signals a shift back to his entrepreneurial roots and could lead to exciting developments in the tech landscape.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "startup-2",
+            "date": "June 6, 2026",
+            "title": "As VC-backed e-bike startups went bankrupt, bootstrapped Lectric grew",
+            "summary": "While many VC-backed e-bike startups faced bankruptcy, Lectric has thrived by bootstrapping its operations. This success story highlights the resilience of businesses that prioritize sustainable growth over rapid expansion.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/06/05/as-vc-backed-e-bike-startups-went-bankrupt-bootstrapped-lectric-grew/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 6, 2026",
+            "title": "Scientists discover why ozempic may not work for some people",
+            "summary": "Researchers have uncovered the reasons behind the varying effectiveness of Ozempic, a popular diabetes medication, in different individuals. This discovery could lead to more personalized treatment approaches and improved patient outcomes.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260605023417.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 6, 2026",
+            "title": "Hidden supermassive black hole pairs may finally have a visible signal",
+            "summary": "Astronomers are on the verge of detecting signals from previously hidden pairs of supermassive black holes. This breakthrough could enhance our understanding of galaxy formation and the dynamics of these colossal cosmic entities.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260605023418.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 6, 2026': JUNE_6_2026_CATEGORIES,
   'June 5, 2026': JUNE_5_2026_CATEGORIES,
   'June 4, 2026': JUNE_4_2026_CATEGORIES,
   'June 3, 2026': JUNE_3_2026_CATEGORIES,
