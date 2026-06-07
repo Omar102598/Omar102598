@@ -3289,8 +3289,130 @@ const JUNE_6_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_7_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "June 7, 2026",
+            "title": "OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks",
+            "summary": "OpenAI has introduced a new feature called Lockdown Mode, designed to enhance the security of sensitive data against prompt injection attacks. This move underscores the growing importance of data protection in AI applications.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "June 7, 2026",
+            "title": "Former cyber executive turned whistleblower accuses IBM of covering up several data breaches",
+            "summary": "A former IBM cyber executive has come forward as a whistleblower, alleging that the company concealed multiple data breaches. This revelation raises significant concerns about corporate transparency and data security practices.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/06/05/former-cyber-executive-turned-whistleblower-accuses-ibm-of-covering-up-several-data-breaches/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "June 7, 2026",
+            "title": "How a USB-connected speaker can infect a PC without ever being touched",
+            "summary": "A new report reveals a vulnerability in USB-connected speakers that allows them to infect PCs wirelessly. This alarming discovery highlights the need for heightened awareness and security measures regarding peripheral devices.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/06/highly-reviewed-speaker-can-be-hacked-over-the-air-to-infect-connected-devices/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "June 7, 2026",
+            "title": "Scientists found a surprisingly simple way to create powerful quantum states",
+            "summary": "Researchers have discovered a straightforward method to generate powerful quantum states, potentially revolutionizing quantum computing and information processing. This breakthrough could pave the way for more efficient quantum technologies.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606075510.htm",
+            "source": "sciencedaily.com"
+          },
+          {
+            "id": "physics-2",
+            "date": "June 7, 2026",
+            "title": "Scientists finally complete Schrödinger’s 100-year-old color theory",
+            "summary": "A team of scientists has successfully completed a century-old color theory proposed by Schrödinger, providing new insights into the interaction of light and matter. This achievement could have implications for various fields, including optics and materials science.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606015140.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 7, 2026",
+            "title": "Ancient Chinese medicine could transform hair loss treatment",
+            "summary": "A study suggests that principles from ancient Chinese medicine may offer new approaches to treating hair loss. This research could lead to innovative therapies that blend traditional practices with modern science.",
+            "tag": "Research",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606015144.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 7, 2026",
+            "title": "Tiny X-ray telescope could unlock the Moon's hidden chemistry",
+            "summary": "A newly developed tiny X-ray telescope has the potential to reveal the Moon's hidden chemical composition. This advancement could enhance our understanding of lunar geology and the Moon's formation.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606075508.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 7, 2026': JUNE_7_2026_CATEGORIES,
   'June 6, 2026': JUNE_6_2026_CATEGORIES,
   'June 5, 2026': JUNE_5_2026_CATEGORIES,
   'June 4, 2026': JUNE_4_2026_CATEGORIES,
