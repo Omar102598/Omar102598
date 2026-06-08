@@ -3410,8 +3410,105 @@ const JUNE_7_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_8_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-gen-1",
+            "date": "June 8, 2026",
+            "title": "OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks",
+            "summary": "OpenAI has introduced Lockdown Mode, a new feature designed to safeguard sensitive data against prompt injection attacks. This move highlights the ongoing commitment to enhancing security measures in AI applications.",
+            "tag": "Policy",
+            "url": "https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "June 8, 2026",
+            "title": "Hacked, leaked, and held for ransom: the worst breaches of 2026 so far",
+            "summary": "A comprehensive overview of the most significant cybersecurity breaches of 2026 reveals alarming trends in data leaks and ransom attacks. This report serves as a crucial reminder of the vulnerabilities that persist in our digital landscape.",
+            "tag": "Breach",
+            "url": "https://techcrunch.com/2026/06/07/the-worst-hacks-and-breaches-of-2026-so-far/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "cyber-2",
+            "date": "June 8, 2026",
+            "title": "School shooting survivor sues AI gun detection firm after system failed to spot weapon",
+            "summary": "In a troubling case, a school shooting survivor has filed a lawsuit against an AI gun detection company, claiming its system failed to identify a weapon during a critical incident. This highlights the potential consequences of relying on AI for safety measures.",
+            "tag": "Policy",
+            "url": "https://arstechnica.com/tech-policy/2026/06/school-shooting-survivor-sues-ai-gun-detection-firm-after-system-failed-to-spot-weapon/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "icon": "⚛️",
+        "articles": [
+          {
+            "id": "physics-1",
+            "date": "June 8, 2026",
+            "title": "Scientists found a surprisingly simple way to create powerful quantum states",
+            "summary": "Researchers have discovered a novel method for generating powerful quantum states, which could have significant implications for quantum computing and information processing. This breakthrough simplifies previous techniques, making them more accessible.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606075510.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 8, 2026",
+            "title": "Tiny X-ray telescope could unlock the Moon's hidden chemistry",
+            "summary": "A new compact X-ray telescope has the potential to reveal the Moon's hidden chemical composition, offering insights into its formation and evolution. This innovative technology could enhance our understanding of lunar geology.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260606075508.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 8, 2026': JUNE_8_2026_CATEGORIES,
   'June 7, 2026': JUNE_7_2026_CATEGORIES,
   'June 6, 2026': JUNE_6_2026_CATEGORIES,
   'June 5, 2026': JUNE_5_2026_CATEGORIES,
