@@ -3506,8 +3506,96 @@ const JUNE_8_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_9_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "June 9, 2026",
+            "title": "OpenAI files confidentially for IPO, following Anthropic",
+            "summary": "OpenAI has taken a significant step by filing confidentially for an IPO, following in the footsteps of Anthropic. This move signals a growing confidence in the AI sector as companies seek to capitalize on their advancements and market potential.",
+            "tag": "IPO",
+            "url": "https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/",
+            "source": "techcrunch.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cybersecurity-1",
+            "date": "June 9, 2026",
+            "title": "Meta alleges NSO violated spyware injunction with new WhatsApp attacks",
+            "summary": "Meta has accused NSO Group of breaching a court injunction by launching new attacks on WhatsApp. This allegation highlights ongoing concerns over spyware and the implications for user privacy and security.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/tech-policy/2026/06/meta-alleges-nso-violated-spyware-injunction-with-new-whatsapp-attacks/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 9, 2026",
+            "title": "Scientists found a new Alzheimer’s trigger and a drug that stops it",
+            "summary": "Researchers have identified a new trigger for Alzheimer’s disease and developed a drug that effectively halts its progression. This breakthrough could pave the way for innovative treatments and improved patient outcomes.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260608035959.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "name": "Space & Astronomy",
+        "icon": "🚀",
+        "articles": [
+          {
+            "id": "space-1",
+            "date": "June 9, 2026",
+            "title": "Planet nine mystery deepens as new discovery challenges hidden planet theory",
+            "summary": "A recent discovery has intensified the debate surrounding the existence of Planet Nine, challenging previous theories about its potential location and characteristics. This ongoing mystery continues to captivate astronomers and space enthusiasts alike.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260608040009.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 9, 2026': JUNE_9_2026_CATEGORIES,
   'June 8, 2026': JUNE_8_2026_CATEGORIES,
   'June 7, 2026': JUNE_7_2026_CATEGORIES,
   'June 6, 2026': JUNE_6_2026_CATEGORIES,
