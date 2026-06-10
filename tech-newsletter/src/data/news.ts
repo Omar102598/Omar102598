@@ -3593,8 +3593,121 @@ const JUNE_9_2026_CATEGORIES: Category[] = [
   }
 ];
 
+const JUNE_10_2026_CATEGORIES: Category[] = [
+  {
+    "id": "technology",
+    "name": "Technology",
+    "icon": "💻",
+    "color": "#06b6d4",
+    "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
+    "description": "Latest in software, hardware, AI, cybersecurity, cloud, and web development.",
+    "subCategories": [
+      {
+        "id": "ai-generative",
+        "name": "Generative AI",
+        "icon": "🤖",
+        "articles": [
+          {
+            "id": "ai-generative-1",
+            "date": "June 10, 2026",
+            "title": "Anthropic's Fable 5 can make weirdly fun video games with the click of a button",
+            "summary": "Anthropic has unveiled Fable 5, a generative AI model capable of creating engaging video games with minimal input. This innovation could revolutionize game development, making it accessible to a broader audience.",
+            "tag": "Model Release",
+            "url": "https://techcrunch.com/2026/06/09/anthropics-fable-5-can-make-weirdly-fun-video-games-with-the-click-of-a-button/",
+            "source": "techcrunch.com"
+          },
+          {
+            "id": "ai-generative-2",
+            "date": "June 10, 2026",
+            "title": "Google announces Gemini 3.5 Live Translate for instant voice-to-voice translation",
+            "summary": "Google has launched Gemini 3.5, featuring Live Translate, which enables real-time voice-to-voice translation. This advancement promises to enhance communication across language barriers significantly.",
+            "tag": "Model Release",
+            "url": "https://arstechnica.com/ai/2026/06/google-announces-gemini-3-5-live-translate-for-instant-voice-to-voice-translation/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "cybersecurity",
+        "name": "Cybersecurity",
+        "icon": "🔐",
+        "articles": [
+          {
+            "id": "cyber-1",
+            "date": "June 10, 2026",
+            "title": "Locked in heated rivalry with researcher, Microsoft fixes 0-day they disclosed",
+            "summary": "Microsoft has addressed a critical 0-day vulnerability that was disclosed amid a competitive dispute with a researcher. This fix underscores the ongoing challenges in cybersecurity and the importance of timely updates.",
+            "tag": "Breach",
+            "url": "https://arstechnica.com/security/2026/06/locked-in-heated-rivalry-with-researcher-microsoft-fixes-0-day-they-disclosed/",
+            "source": "feeds.arstechnica.com"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Computing",
+        "icon": "☁️",
+        "articles": [
+          {
+            "id": "cloud-1",
+            "date": "June 10, 2026",
+            "title": "Meta signs first AI data center deal in India with Reliance",
+            "summary": "Meta has partnered with Reliance to establish its first AI data center in India, marking a significant step in expanding its cloud infrastructure in the region. This collaboration aims to enhance AI capabilities and data processing efficiency.",
+            "tag": "Startup",
+            "url": "https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/",
+            "source": "techcrunch.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "icon": "🔬",
+    "color": "#10b981",
+    "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
+    "description": "Breakthroughs in physics, biology, space exploration, and environmental science.",
+    "subCategories": [
+      {
+        "id": "biology",
+        "name": "Biology & Biotech",
+        "icon": "🧬",
+        "articles": [
+          {
+            "id": "biology-1",
+            "date": "June 10, 2026",
+            "title": "Popular joint supplement glucosamine linked to faster Alzheimer’s progression",
+            "summary": "Recent research has found a concerning link between glucosamine, a popular joint supplement, and accelerated progression of Alzheimer’s disease. This revelation raises questions about the long-term effects of widely used supplements.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260610003044.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      },
+      {
+        "id": "climate",
+        "name": "Climate & Environment",
+        "icon": "🌍",
+        "articles": [
+          {
+            "id": "climate-1",
+            "date": "June 10, 2026",
+            "title": "An invisible forever chemical rain is falling across the planet",
+            "summary": "A new study reveals that persistent chemicals, often referred to as 'forever chemicals', are falling as invisible rain worldwide. This alarming finding highlights the pervasive nature of environmental pollutants and their potential health impacts.",
+            "tag": "Discovery",
+            "url": "https://www.sciencedaily.com/releases/2026/06/260609025509.htm",
+            "source": "sciencedaily.com"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // All available newsletter data keyed by date string (add new dates here as they become available)
 export const allNewsData: Record<string, Category[]> = {
+  'June 10, 2026': JUNE_10_2026_CATEGORIES,
   'June 9, 2026': JUNE_9_2026_CATEGORIES,
   'June 8, 2026': JUNE_8_2026_CATEGORIES,
   'June 7, 2026': JUNE_7_2026_CATEGORIES,
